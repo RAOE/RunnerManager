@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:aop="http://www.springframework.org/schema/aop" 
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                        http://www.springframework.org/schema/beans/spring-beans.xsd  
+                        http://www.springframework.org/schema/mvc 
+                        http://www.springframework.org/schema/mvc/spring-mvc.xsd 
+                        http://www.springframework.org/schema/context 
+                        http://www.springframework.org/schema/context/spring-context.xsd 
+                        http://www.springframework.org/schema/aop 
+                        http://www.springframework.org/schema/aop/spring-aop.xsd 
+                        http://www.springframework.org/schema/tx 
+                        http://www.springframework.org/schema/tx/spring-tx.xsd">
+    
+    <!-- 数据库连接池 -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="com.mysql.jdbc.Driver"/>  
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/pingpongmanager?characterEncoding=UTF8"/>  
+        <property name="user" value="root"/>  
+        <property name="password" value="root"/>  
+        <property name="maxPoolSize" value="100"/>  
+        <property name="minPoolSize" value="10"/>  
+        <property name="maxIdleTime" value="60"/>  
+    </bean>
+    
+    <!-- mybatis 的 sqlSessionFactory -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="configLocation" value="classpath:mybatis-config.xml"></property>
+	</bean>
+	
+	<!-- mybatis mapper接口自动扫描、自动代理 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+	   <property name="basePackage" value="com.xyf.mapper" />
+	</bean>
+	
+    <!-- 事务管理器 -->
+    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <!-- 事务传播行为 -->
+    <tx:advice id="txAdvice" transaction-manager="txManager">
+        <tx:attributes>
+            <tx:method name="select*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="page*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="is*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="*" propagation="REQUIRED" read-only="false"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <!-- 织入事务增强功能 -->
+    <aop:config>
+        <aop:pointcut id="txPointcut" expression="execution(* com.xyf.service..*.*(..))" />
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut" />
+    </aop:config>
+
+     <!-- 配置扫描spring注解(@Component、@Controller、@Service、@Repository)时扫描的包，同时也开启了spring注解支持 -->
+     <!-- 这个地方只需要扫描service包即可，因为controller包由springMVC配置扫描，mapper包由上面的mybatis配置扫描 -->
+    <context:component-scan base-package="com.xyf.service"></context:component-scan>
+
+    <!-- 开启spring aop 注解支持，要想aop真正生效，还需要把切面类配置成bean -->
+    <aop:aspectj-autoproxy/>
+
+</beans>		                    

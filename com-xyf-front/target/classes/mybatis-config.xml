@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <settings>
+        <!-- 使用log4j2作为日志实现 -->
+        <setting name="logImpl" value="LOG4J2"/>
+    </settings>
+
+	<typeAliases>
+        <!-- 为指定包下的pojo类自动起别名 -->
+		<package name="com.xyf.pojo"/>
+	</typeAliases>
+	
+	<plugins>
+        <!-- 分页插件 -->
+	    <plugin interceptor="com.github.pagehelper.PageHelper"></plugin>
+	</plugins>
+    
+	<mappers>
+        <!-- 自动加载指定包下的映射配置文件 -->
+        <package name="com.xyf.mapper"/>
+	</mappers>
+
+</configuration>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyf.mapper.UserScoreMapper">
+
+    <insert id="insert" parameterType="UserScore" >
+      insert into t_usertoscore (adminId,userId,projectId,score,isDeleted)
+      values(#{adminId},#{userId},#{projectId},#{score},0);     
+    </insert>
+
+   <select id="select"  parameterType="UserScore" resultType="UserScore">
+   select * from  t_usertoscore 
+      <where>
+            <if test="projectId!=null">and projectId =#{projectId}</if>
+                <if test="adminId!=null">and adminId =#{adminId}</if>
+    
+      </where>
+      and 
+       isDeleted = 0
+  
+  </select>
+
+ <select id="selectAll"  parameterType="UserScore" resultType="UserScore">
+select us.score,us.id,us.isDeleted,u.team as user_team,
+u.name as user_name , a.realname as admin_name ,p.name as project_name
+from t_usertoscore  us 
+left join t_users u on u.id = us.userId
+left join t_project p on p.id = us.projectId
+left join t_admin a on a.id =us.adminId 
+      <where>
+      <if test="projectId!=null">and us.projectId =#{projectId} </if>
+           <if test="userId!=null">and us.userId =#{userId} </if>
+     
+     
+      </where>
+  
+  </select>
+  
+  
+ <select id="selectProject"  parameterType="UserScore" resultType="Project">
+select p.*
+from t_usertoscore  us 
+left join t_users u on u.id = us.userId
+left join t_project p on p.id = us.projectId
+left join t_admin a on a.id =us.adminId 
+      <where>
+           <if test="userId!=null"> us.userId =#{userId} </if>
+     
+     
+      </where>
+  
+  </select>
+
+  
+  
+  
+  
+  
+  <update id="delete"  parameterType="UserScore" >
+    update t_usertoscore set isDeleted = 1 
+    
+     <where>
+        <if test="id!=null">id =#{id}</if>      
+     </where> 
+  </update>
+
+
+</mapper>

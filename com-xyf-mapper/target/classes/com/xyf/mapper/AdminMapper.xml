@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyf.mapper.AdminMapper">
+
+  <select id="select"  parameterType="Admin" resultType="Admin">
+  select * from t_admin 
+   <where>
+               <if test="name!=null"> name=#{name} </if>
+               <if test="id!=null"> and id=#{id} </if>
+               <if test="password!=null">and password =#{password}</if>
+               
+  </where>
+  and isDeleted = 0
+ 
+  </select>
+    <select id="selectAll"  parameterType="Admin" resultType="Admin">
+      select * from t_admin  where isDeleted = 0
+    </select>
+
+  <update id="update"  parameterType="Admin" >
+  update t_admin set password=#{password} where id=#{id} and isDeleted =false 
+  </update>
+  
+    <insert id="insert" parameterType="Admin" >
+      insert into t_admin (name,phone,password,description,realname,roleid,isDeleted)
+      values(#{name},#{phone},#{password},#{description},#{realname},#{roleid},0);     
+    </insert>
+  
+
+</mapper>

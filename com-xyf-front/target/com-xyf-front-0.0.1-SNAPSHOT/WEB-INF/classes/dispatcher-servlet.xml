@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                        http://www.springframework.org/schema/beans/spring-beans.xsd  
+                        http://www.springframework.org/schema/mvc 
+                        http://www.springframework.org/schema/mvc/spring-mvc.xsd 
+                        http://www.springframework.org/schema/context 
+                        http://www.springframework.org/schema/context/spring-context.xsd 
+                        http://www.springframework.org/schema/aop 
+                        http://www.springframework.org/schema/aop/spring-aop.xsd 
+                        http://www.springframework.org/schema/tx 
+                        http://www.springframework.org/schema/tx/spring-tx.xsd">
+                        
+    <!-- 配置扫描spring注解时扫描的包，同时也开启了spring注解支持 -->
+	<context:component-scan base-package="com.xyf.web" />
+
+
+    <!-- 开启springMVC相关注解支持 -->
+	<mvc:annotation-driven />
+    
+    <!-- 开启spring aop 注解支持 -->
+    <aop:aspectj-autoproxy/>
+
+	<!-- 约定大于配置：约定视图页面的全路径 = prefix + viewName + suffix -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+
+	<!-- 验证器 -->
+	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+		<property name="providerClass" value="org.hibernate.validator.HibernateValidator" />
+	</bean>
+
+	<!-- 文件上传解析器 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="104857600" />
+		<property name="defaultEncoding" value="UTF-8" />
+		<property name="maxInMemorySize" value="40960" />
+	</bean>
+	
+	 
+    <!-- 资源映射 -->
+    <mvc:resources location="/css/" mapping="/css/**" />
+    <mvc:resources location="/js/" mapping="/js/**" />
+    <mvc:resources location="/images/" mapping="/images/**" />
+    <mvc:resources location="/lib/" mapping="/lib/**" />
+    <mvc:resources location="/audios/" mapping="/audios/**" />
+    <mvc:resources location="/videos/" mapping="/videos/**" />
+    <mvc:resources location="/upload/" mapping="/upload/**" />
+    <mvc:resources location="/date/" mapping="/date/**" />
+    <mvc:resources location="/font/" mapping="/font/**" />
+    <mvc:resources location="/fonts/" mapping="/fonts/**" />
+    <mvc:resources location="/IE6/" mapping="/IE6/**" />
+    <mvc:resources location="/js/" mapping="/js/**" />
+	
+ 
+</beans>

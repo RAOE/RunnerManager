@@ -1,0 +1,105 @@
+*{ margin:0; padding:0px;}
+html{-webkit-text-size-adjust: none;}
+/*
+  outline:none; blr:expression(this.onFocus=this.blur());
+  -webkit-text-size-adjust:none;
+  lv：#060
+*/
+blockquote,body,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,li,ol,p,pre,td,textarea,th,ul{ margin:0; padding:0}
+body,button,input,select,textarea{font:14px/24px "microsoft yahei","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","华文细黑","STHeiti","微软雅黑","Microsoft YaHei",SimHei,sans-serif;}
+html,body{ background:#fafafa; min-width:1100px;/* max-width:1600px; */margin:0 auto; color:#666}
+h1,h2,h3,h4,h5,h6{font-size:100%; font-weight:normal;}
+address,cite,dfn,em,var,i{font-style:normal}
+code,kbd,pre,samp{font-family:courier new,courier,monospace}
+small{font-size:12px}
+ol,ul,li,dl,dd,dt{list-style:none}
+a{ color: #333; text-decoration:none;}
+a:hover{text-decoration:underline; }
+img{border:0}
+button,input,select,textarea{font-size:100%}
+table,tr,td{border-collapse:collapse; border-spacing:0}
+.a-hover:hover,.a-hover a:hover{ text-decoration:none;}
+/*-----清除浮动-----*/
+.clearfix:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0;}
+* html .clearfix{ zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+.pct{ width:100%;}
+.pct-h{ height:100%;}
+.content,.wrap{ width:1100px; min-width:1100px; margin:0 auto;}
+.fl{ float:left !important;}
+.fr{ float:right !important;}
+.pr{ position:relative;}
+.pb{ position:absolute;}
+.imgmid{display:inline-block !important;*display:inline !important;*zoom:1; height:100%; width:1px; margin-left:-1px; vertical-align:middle;}
+.in-b{ display:inline-block !important;}
+.blk{ display:block !important;}
+.yahei{ font-family:"microsoft yahei","yahei"}
+.songti{ font-family:"宋体";}
+.Arial{ font-family:Arial, Helvetica, sans-serif !important;}
+.b{ font-weight:bold;}
+
+.red{ color:#F00 !important;}
+.black{ color:#000 !important;}
+.white{ color:#FFF !important;}
+.green{ color:#99cc33 !important;}
+.c999{ color:#999 !important;}
+.c333{ color:#333 !important;}
+.c666{ color:#666 !important;}
+.blue{ color:#14aadf !important;}
+.o{ color:#ff4800 !important}
+
+.f12{ font-size:12px !important;}
+.f13{ font-size:13px !important;}
+.f14{ font-size:14px !important;}
+.f15{ font-size:15px !important;}
+.f16{ font-size:16px !important;}
+.f17{ font-size:17px !important;}
+.f18{ font-size:18px !important;}
+.f20{ font-size:20px !important;}
+.f21{ font-size:21px !important;}
+.f22{ font-size:22px !important;}
+.f24{ font-size:24px !important;}
+.f26{ font-size:26px !important;}
+.f30{ font-size:30px !important;}
+
+.none,.sublist,.hide{ display:none;}
+.lh{ line-height:20px !important;}
+.lh24{ line-height:24px !important;}
+.lh26{ line-height:26px !important;}
+.lh28{ line-height:28px !important;}
+.lh30{ line-height:30px !important;}
+.lh32{ line-height:32px !important;}
+.lh35{ line-height:35px !important;}
+.tc{ text-align:center !important;}
+.tl{ text-align:left !important;}
+.tr{ text-align:right !important;}
+.pd10{ padding:10px !important;}
+.pd15{ padding:15px !important;}
+.pd20{ padding:20px !important;}
+.pd30{ padding:30px !important;}
+.pd35{ padding:35px !important;}
+.mt5{ margin-top:5px !important;}
+.mt10{ margin-top:10px !important;}
+.mt15{ margin-top:15px !important;}
+.mt20{ margin-top:20px !important;}
+.mt25{ margin-top:25px !important;}
+.mt30{ margin-top:30px !important;}
+.mt36{ margin-top:36px !important;}
+.mt40{ margin-top:40px !important;}
+.bg-w{ background:#FFF !important;}
+.cursor{ cursor:pointer !important;}
+.bd0{ border:0 !important;}
+.nobg{ background:none !important;}
+
+@font-face {font-family: myfont;
+  src: url(../font/myfont.eot); /* IE9*/
+  src: url(../font/myfont.eot?#iefix) format('embedded-opentype'), /* IE6-IE8 */
+  url(../font/myfont.woff) format('woff'), /* chrome、firefox */
+  url(../font/myfont.ttf) format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url(../font/myfont.svg#cicle) format('svg'); /* iOS 4.1- */
+}
+.indent{ text-indent:-999px; overflow:hidden;}
+.button{ display:inline-block; border:0; cursor:pointer; text-align:center; text-decoration:none}
+.img img{ max-width:100%; max-height:100%; vertical-align:middle; display:inline-block; margin:0; padding:0;}
+.myfont{ font-family:"myfont"}

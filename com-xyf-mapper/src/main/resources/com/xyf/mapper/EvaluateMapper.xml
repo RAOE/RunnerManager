@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyf.mapper.EvaluateMapper">
+
+  
+    <insert id="insert" parameterType="Evaluate" >
+      insert into t_usertoevaluate (userId,adminId,evaluate,image,isDeleted)
+      values(#{userId},#{adminId},#{evaluate},#{image},0);     
+    </insert>
+  
+  
+    <select id="select"  parameterType="Evaluate" resultType="Evaluate">
+      select ue.*,u.name as user_name,a.realname as admin_name
+ from t_usertoevaluate ue
+ left join t_users u on u.id =  ue.userid
+  left join t_admin a  on a.id =  ue.adminid
+  where ue.isDeleted = 0
+    </select>
+
+
+   
+  <update id="delete"  parameterType="Evaluate" >
+  update t_usertoevaluate set isDeleted =1  where id=#{id} 
+  </update>
+
+
+</mapper>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyf.mapper.ProjectUserMapper">
+
+
+
+  <select id="selectSecondListByFirstId"   parameterType="Project" resultType="ProjectUser">
+  select u.id,u.name,u.description,u.team,u.isMale,up.isDeleted  from  t_project p left join t_usertoproject up  on p.id=up.projectid
+  left join  t_users u on up.userid=u.id where p.id=#{id} 
+  and up.isDeleted =0
+  </select>
+
+  <insert id="insert" parameterType="ProjectUser" >
+      insert into t_usertoproject(userid,projectid,isDeleted)
+      values(#{userid},#{projectid},0);     
+  </insert>
+  
+
+  <update id="delete"  parameterType="ProjectUser" >
+    update t_usertoproject set isDeleted = 1 
+    
+     <where>
+           <if test="userid!=null"> userid=#{userid} </if>
+           <if test="projectid!=null"> and projectid=#{projectid} </if>
+      
+     </where> 
+  </update>
+ 
+ <select id="select"  parameterType="ProjectUser" resultType="ProjectUser">
+     select * from t_usertoproject 
+     <where>
+           <if test="userid!=null"> userid=#{userid} </if>
+           <if test="projectid!=null"> and projectid=#{projectid} </if>
+      
+     </where> 
+  and isDeleted=0
+  
+  </select>
+ 
+</mapper>

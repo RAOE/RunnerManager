@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyf.mapper.ProjectMapper">
+
+    <insert id="insert" parameterType="Project" >
+      insert into t_project (name,description,isDeleted,begintime,location,country)
+      values(#{name},#{description},0,#{begintime},#{location},#{country});     
+    </insert>
+
+  <select id="select"  parameterType="Project" resultType="Project">
+  select * from t_project 
+  <where>
+    <if test="name!=null"> name=#{name} </if>
+    and isDeleted=0  
+    
+  </where> 
+  </select>
+
+
+<select id="selectAll"  parameterType="User" resultType="Project">
+  select * from t_project 
+  <where>
+    <if test="name!=null"> name=#{name} </if>
+    and isDeleted=0  
+    
+  </where> 
+  </select>
+
+
+
+
+
+
+
+
+
+
+  <update id="delete"  parameterType="Project" >
+  update t_project set isDeleted = 1 where id=#{id}
+  </update>
+
+
+
+
+
+</mapper>
