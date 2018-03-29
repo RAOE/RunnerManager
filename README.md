@@ -27,7 +27,7 @@ ORM框架：Mybatis
 JDK版本：jdk1.8
 Tomcat版本：Tomcat8.x
 
-2.初始化项目
+<h1>2.初始化项目</h1>
 在你的Mysql中，创建一个数据库名称为 pingpongmanager 的数据库，并导入我提供的 .sql 文件。<br/>
 进入src/main/resources修改beans.xml配置文件,把数据库登录名和密码，改为你本地的<br/>
 使用 Eclipse 导入项目，选择Maven项目选项，一路点击next就行，导入项目后，如果src目录等，都没显示出来，别急先使用Maven构建该项目<br/>
