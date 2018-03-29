@@ -37,12 +37,10 @@ com-xyf-parent → com-xyf-pojo → com-xyf-common →
 com-xyf-mapper → com-xyf-service → com-xyf-front
 运行com-xyf-front
 
-图片:
-
 登录账户
-超级管理员账户：admin 密码为：123123
-管理账户：admin2  密码为：123456
-运动员账户：1550000  密码为：123456
+超级管理员账户：admin 密码为：123123<br/>
+管理账户：admin3  密码为：123123<br/>
+运动员账户：1550000  密码为：123456<br/>
 
 
 <h2>功能模块介绍</h2>
@@ -50,24 +48,35 @@ com-xyf-mapper → com-xyf-service → com-xyf-front
 <h4>1.登录模块功能</h4>
 
 实现登录验证和登录信息的储存，根据不同的登录账户，对不同页面url进行角色设置
+ <img src="/other/login.jpg" alt="主页" style="max-width:100%;">
 
 <h4>2.裁判模块功能</h4>
+ <img src="/other/admin3.jpg" alt="主页" style="max-width:100%;">
 
-裁判可对、运动员信息、比赛信息 进行 增删改查 操作，管理员账户，可以重置非裁判账户的密码
+裁判，裁判长可对、运动员信息、比赛信息 进行 增删改查 操作，管理员账户，可以重置非裁判账户的密码
 比赛管理：增加删除修改比赛,添加运动员到比赛中，对比赛中的学生进行评分
+ <img src="/other/score.jpg" alt="主页" style="max-width:100%;">
+
 运动员管理：添加运动员信息时，其信息也会添加到登录表中，可以对学生进行评价
+ <img src="/other/runner.jpg" alt="主页" style="max-width:100%;">
+
 账户密码重置：
 修改密码： 
 
 <h4>3.裁判长模块</h4>
+ <img src="/other/project.jpg" alt="主页" style="max-width:100%;">
 
 拥有最高权限
 可以添加裁判信息
 拥有上述所有功能。
 
 <h4>4.运动员模块</h4>
+ <img src="/other/look.jpg" alt="主页" style="max-width:100%;">
 
 运动员可以查看所在的比赛项目
 运动员可以查看比赛的评分
 
+<h4>4.其他模块</h4>
 
+密码修改
+<img src="/other/password.jpg" alt="主页" style="max-width:100%;">
