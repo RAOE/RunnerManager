@@ -1,8 +1,8 @@
-<h2>简介</h2>
+<h1>简介</h1>
 
 这个项目是一个简单的比赛管理系统，该练手小项目希望能帮助到大家，熟悉SSM的整合开发
 
-<h2>使用技术</h2>
+<h1>使用技术</h1>
 
 IOC容器：Spring
 
@@ -17,7 +17,7 @@ ORM框架：Mybatis
 前端框架：Hui
 
 
-<h2>快速上手</h2>
+<h1>快速上手</h1>
 
 <h4>1.运行环境和所需工具</h4>
 
@@ -43,14 +43,15 @@ com-xyf-mapper → com-xyf-service → com-xyf-front
 运动员账户：1550000  密码为：123456<br/>
 
 
-<h2>功能模块介绍</h2>
+<h1>功能模块介绍</h1>
 
 <h3>1.登录模块功能</h3>
-
+<br/>
 实现登录验证和登录信息的储存，根据不同的登录账户，对不同页面url进行角色设置
  <img src="/other/login.jpg" alt="主页" style="max-width:100%;">
 
 <h3>2.裁判模块功能</h3>
+<br/>
  <img src="/other/admin3.jpg" alt="主页" style="max-width:100%;"><br/>
 
 裁判，裁判长可对、运动员信息、比赛信息 进行 增删改查 操作，管理员账户，可以重置非裁判账户的密码
@@ -64,6 +65,7 @@ com-xyf-mapper → com-xyf-service → com-xyf-front
 修改密码： 
 
 <h3>3.裁判长模块</h3>
+<br/>
  <img src="/other/project.jpg" alt="主页" style="max-width:100%;"><br/>
 
 拥有最高权限
@@ -71,12 +73,14 @@ com-xyf-mapper → com-xyf-service → com-xyf-front
 拥有上述所有功能。
 
 <h3>4.运动员模块</h3>
+<br/>
  <img src="/other/look.jpg" alt="主页" style="max-width:100%;"><br/>
 
 运动员可以查看所在的比赛项目
 运动员可以查看比赛的评分
 
 <h3>4.其他模块</h3>
+<br/>
 
 密码修改
 <img src="/other/password.jpg" alt="主页" style="max-width:100%;"><br/>

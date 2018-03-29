@@ -1,8 +1,8 @@
-<h2>简介</h2>
+<h1>简介</h1>
 
 这个项目是一个简单的比赛管理系统，该练手小项目希望能帮助到大家，熟悉SSM的整合开发
 
-<h2>使用技术</h2>
+<h1>使用技术</h1>
 
 IOC容器：Spring
 
@@ -17,7 +17,7 @@ ORM框架：Mybatis
 前端框架：Hui
 
 
-<h2>快速上手</h2>
+<h1>快速上手</h1>
 
 <h4>1.运行环境和所需工具</h4>
 
@@ -43,7 +43,7 @@ com-xyf-mapper → com-xyf-service → com-xyf-front
 运动员账户：1550000  密码为：123456<br/>
 
 
-<h2>功能模块介绍</h2>
+<h1>功能模块介绍</h1>
 
 <h3>1.登录模块功能</h3>
 <br/>
@@ -85,4 +85,5 @@ com-xyf-mapper → com-xyf-service → com-xyf-front
 密码修改
 <img src="/other/password.jpg" alt="主页" style="max-width:100%;"><br/>
 
+<h1>最后</h1>
 借鉴或参考请先联系作者(986771570@qq.com)，有项目或者其他技术上的问题可以随时联系我，我会尽力去为您解答，欢迎Star或Fork，您的star和Fork是对作品的认同与肯定，感谢！
