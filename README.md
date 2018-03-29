@@ -45,38 +45,44 @@ com-xyf-mapper → com-xyf-service → com-xyf-front
 
 <h2>功能模块介绍</h2>
 
-<h4>1.登录模块功能</h4>
-
+<h3>1.登录模块功能</h3>
+<br/>
 实现登录验证和登录信息的储存，根据不同的登录账户，对不同页面url进行角色设置
  <img src="/other/login.jpg" alt="主页" style="max-width:100%;">
 
-<h4>2.裁判模块功能</h4>
- <img src="/other/admin3.jpg" alt="主页" style="max-width:100%;">
+<h3>2.裁判模块功能</h3>
+<br/>
+ <img src="/other/admin3.jpg" alt="主页" style="max-width:100%;"><br/>
 
 裁判，裁判长可对、运动员信息、比赛信息 进行 增删改查 操作，管理员账户，可以重置非裁判账户的密码
-比赛管理：增加删除修改比赛,添加运动员到比赛中，对比赛中的学生进行评分
- <img src="/other/score.jpg" alt="主页" style="max-width:100%;">
+比赛管理：增加删除修改比赛,添加运动员到比赛中，对比赛中的学生进行评分并审核
+ <img src="/other/score.jpg" alt="主页" style="max-width:100%;"><br/>
 
 运动员管理：添加运动员信息时，其信息也会添加到登录表中，可以对学生进行评价
- <img src="/other/runner.jpg" alt="主页" style="max-width:100%;">
+ <img src="/other/runner.jpg" alt="主页" style="max-width:100%;"><br/>
 
 账户密码重置：
 修改密码： 
 
-<h4>3.裁判长模块</h4>
- <img src="/other/project.jpg" alt="主页" style="max-width:100%;">
+<h3>3.裁判长模块</h3>
+<br/>
+ <img src="/other/project.jpg" alt="主页" style="max-width:100%;"><br/>
 
 拥有最高权限
 可以添加裁判信息
 拥有上述所有功能。
 
-<h4>4.运动员模块</h4>
- <img src="/other/look.jpg" alt="主页" style="max-width:100%;">
+<h3>4.运动员模块</h3>
+<br/>
+ <img src="/other/look.jpg" alt="主页" style="max-width:100%;"><br/>
 
 运动员可以查看所在的比赛项目
 运动员可以查看比赛的评分
 
-<h4>4.其他模块</h4>
+<h3>4.其他模块</h3>
+<br/>
 
 密码修改
-<img src="/other/password.jpg" alt="主页" style="max-width:100%;">
+<img src="/other/password.jpg" alt="主页" style="max-width:100%;"><br/>
+
+借鉴或参考请先联系作者(986771570@qq.com)，有项目或者其他技术上的问题可以随时联系我，我会尽力去为您解答，欢迎Star或Fork，您的star和Fork是对作品的认同与肯定，感谢！
