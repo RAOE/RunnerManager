@@ -8,10 +8,9 @@
                <if test="name!=null"> name=#{name} </if>
                <if test="id!=null"> and id=#{id} </if>
                <if test="password!=null">and password =#{password}</if>
+               and isDeleted = 0
                
   </where>
-  and isDeleted = 0
- 
   </select>
     <select id="selectAll"  parameterType="Admin" resultType="Admin">
       select * from t_admin  where isDeleted = 0

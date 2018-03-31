@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.xyf.pojo.Admin;
+import com.xyf.pojo.AdminScore;
 import com.xyf.pojo.Project;
 import com.xyf.pojo.User;
 import com.xyf.pojo.UserScore;
+import com.xyf.service.AdminScoreService;
 import com.xyf.service.AdminService;
 import com.xyf.service.ProjectService;
 import com.xyf.service.UserScoreService;
@@ -39,6 +41,10 @@ public class AdminController {
 	
 	@Autowired
 	private AdminService adminService;
+
+	@Autowired
+	private AdminScoreService adminScoreService;
+	
 	/**
 	 * 用户的登陆
 	 * @return
@@ -105,6 +111,25 @@ public class AdminController {
 
 	}
 	
+	@RequestMapping(value="adminscore.do")
+	public ModelAndView adminscore(HttpServletRequest request,HttpServletResponse response)
+	{
+		
+		ModelAndView modelAndView =new ModelAndView("adminUser/listscore");		
+		AdminScore adminScore=new AdminScore();
+		Admin admin=(Admin) request.getSession().getAttribute("adminUser");
+		System.out.println("当前"+admin.getId());
+		adminScore.setAdminId(admin.getId());
+        List<AdminScore> AdminScoreList=adminScoreService.selectList(adminScore);
+		
+		modelAndView.addObject("AdminScoreList",AdminScoreList);
+		return modelAndView;
+		
+		
+	}
+	
+	
+	
 	
 /**
  * 账号的登出
@@ -120,12 +145,32 @@ public class AdminController {
 		ModelAndView modelAndView =new ModelAndView("adminUser/login");		
 		return modelAndView;
 	}
+	
+	
+	/**
+	 * 
+	 * @param req
+	 * @param resp
+	 * @return
+	 */
+	@RequestMapping(value="evaluate.do",method=RequestMethod.GET)
+	public ModelAndView evaluate(HttpServletRequest req,HttpServletResponse resp)
+	{
+			
+		List<Admin>adminList=adminService.selectList();
+   		ModelAndView modelAndView = new ModelAndView("user/listadmin");
+   		modelAndView.addObject("adminList",adminList);   		
+   		return modelAndView;
+		
+	}	
+
 	/**
 	 * 转到密码修改页面
 	 * @param resp
 	 * @param req
 	 * @return
 	 */
+
 	
 	@RequestMapping(value="updatePassword.do",method=RequestMethod.GET)
 	public ModelAndView updatePassword(HttpServletResponse resp,HttpServletRequest req)
@@ -144,13 +189,7 @@ public class AdminController {
 			String password,Long id,HttpServletResponse resp,
 			HttpServletRequest req)
 	{
-		
-		
-		
-		
-		
-		
-		
+			
 		//根据管理员的id来修改当前的账户密码
 		Admin admin=new Admin();
 		admin.setId(id);

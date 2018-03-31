@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.xyf.pojo.Admin;
+import com.xyf.pojo.AdminScore;
 import com.xyf.pojo.Evaluate;
 import com.xyf.pojo.User;
+import com.xyf.service.AdminScoreService;
+import com.xyf.service.AdminService;
 import com.xyf.service.EvaluateService;
 import com.xyf.service.UserService;
 import com.xyf.utils.AjaxResult;
@@ -33,6 +36,10 @@ public class EvaluateController
 {
 @Autowired
 private UserService userService;
+@Autowired
+private AdminService adminService;
+@Autowired
+private AdminScoreService adminScoreService;
 
 @Autowired
 private EvaluateService evaluateService;
@@ -71,6 +78,56 @@ private EvaluateService evaluateService;
     ModelAndView modelAndView =new ModelAndView("evaluate/show");
     modelAndView.addObject("evaluateList",evaluateList);
 	return modelAndView;
+	  
+  }
+  
+  @RequestMapping(value="/useradd.do",method=RequestMethod.GET)
+  public ModelAndView useradd(Long id)
+  {
+	  Admin admin=new Admin();
+	  admin.setId(id);
+	  admin=adminService.selectOne(admin);
+	  
+	  
+	  ModelAndView modelAndView =new ModelAndView("evaluate/useradd");
+	  modelAndView.addObject("admin",admin);
+	  return modelAndView;
+	  
+  }
+  @RequestMapping(value="/useradd.do",method=RequestMethod.POST)
+  public  @ResponseBody AjaxResult useraddSubmit(Long adminId,Long id,HttpServletRequest request,HttpServletResponse response)
+  {
+	  String message=request.getParameter("evaluate");
+	  Long score=(long) Integer.parseInt(request.getParameter("score"));
+
+      if(message==null||score==null)
+      {
+    	  return AjaxResult.errorInstance("提交失败，填写评论");
+    	  
+      }
+      if(score>100||score<0)
+      {
+    	  return AjaxResult.errorInstance("提交失败，评分应该在100以内");
+
+    	  
+      }
+      
+      AdminScore adminScore=new AdminScore();
+      adminScore.setEvaluate(message);
+      adminScore.setScore(score);
+      adminScore.setUserId(id);
+      adminScore.setAdminId(adminId);
+      
+      
+      //插入数据库
+      adminScoreService.insert(adminScore);      
+      
+      
+	 return AjaxResult.successInstance("用户提交成功");
+	  
+	  
+	  
+	 
 	  
   }
   @RequestMapping(value="/add.do",method=RequestMethod.GET)

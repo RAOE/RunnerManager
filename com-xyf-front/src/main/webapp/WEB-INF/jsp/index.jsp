@@ -46,6 +46,7 @@
     				
     				    <li><a _href="<%=ctxPath %>/user/showScore.do?id=${user.id}" href="javascript:void(0)">查看比赛成绩</a></li>    					
     				    <li><a _href="<%=ctxPath %>/user/showProject.do?id=${user.id}" href="javascript:void(0)">查看比赛项目</a></li>
+    				        				    <li><a _href="<%=ctxPath %>/adminUser/evaluate.do?id=${user.id}" href="javascript:void(0)">对裁判进行评价评分</a></li>
     				                        				    
     				</ul>
     			</dd>
@@ -64,6 +65,19 @@
     				</ul>
     			</dd>
     		</dl>
+    			<dl id="menu-picture">
+    		<dt><i class="Hui-iconfont">&#xe613;</i> 裁判栏目<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+    			<dd>
+    				<ul>
+    				    <li><a _href="<%=ctxPath %>/adminUser/adminscore.do" href="javascript:void(0)">查看等级信息</a></li>    					
+    				                        				    
+    				</ul>
+    			</dd>
+    		</dl>
+    		
+    		
+    		
+    		
     	<dl id="menu-picture">
     		
     		<dt><i class="Hui-iconfont">&#xe613;</i> 比赛项目管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>

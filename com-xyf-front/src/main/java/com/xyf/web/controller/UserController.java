@@ -77,8 +77,6 @@ public class UserController {
 		
 	}	
 	
-//	serach.do
-//	用户查询
 	@RequestMapping(value="serach.do",method=RequestMethod.GET)
 	public ModelAndView serach(String param,HttpServletRequest req,HttpServletResponse resp)
 	{
@@ -390,10 +388,7 @@ public class UserController {
 		user.setPassword(password);		
 		System.out.println(user.toString());
 		userService.update(user);
-		
-		
-		
-		
+			
 		return new AjaxResult().successInstance("提交成功,重新登陆生效");
 		
 	}
