@@ -54,7 +54,8 @@ com-xyf-mapper → com-xyf-service → com-xyf-front
 <br/>
  <img src="/other/admin3.jpg" alt="主页" style="max-width:100%;"><br/>
 
-裁判，裁判长可对、运动员信息、比赛信息 进行 增删改查 操作，管理员账户，可以重置非裁判账户的密码
+裁判，裁判长
+<p>可对、运动员信息、比赛信息 进行 增删改查 操作，管理员账户，可以重置非裁判账户的密码</p>
 比赛管理：增加删除修改比赛,添加运动员到比赛中，对比赛中的学生进行评分并审核
  <img src="/other/score.jpg" alt="主页" style="max-width:100%;"><br/>
 

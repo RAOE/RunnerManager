@@ -83,7 +83,7 @@ com-xyf-mapper → com-xyf-service → com-xyf-front
 <h3>4.其他模块</h3>
 <br/>
 
-密码修改
+密码修改,系统管理等操作
 <img src="/other/password.jpg" alt="主页" style="max-width:100%;"><br/>
 
 <h1>最后</h1>
