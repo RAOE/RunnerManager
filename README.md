@@ -32,9 +32,14 @@ Tomcat版本：Tomcat8.x
 进入src/main/resources修改beans.xml配置文件,把数据库登录名和密码，改为你本地的<br/>
 使用 Eclipse 导入项目，选择Maven项目选项，一路点击next就行，导入项目后，如果src目录等，都没显示出来，别急先使用Maven构建该项目<br/>
 在 Eclipse 中，配置我们的 Tomcat， 然后把使用Maven构建好的项目添加到Tomcat中<br/>
-Maven install 顺序 : 
-com-xyf-parent → com-xyf-pojo → com-xyf-common →
-com-xyf-mapper → com-xyf-service → com-xyf-front
+Maven install 顺序 : <br/>
+com-xyf-parent <br/>
+com-xyf-pojo <br/>
+com-xyf-common <br/>
+com-xyf-mapper <br/>
+com-xyf-service <br/>
+com-xyf-front
+
 运行com-xyf-front
 
 登录账户
@@ -84,6 +89,7 @@ com-xyf-mapper → com-xyf-service → com-xyf-front
 <br/>
 
 密码修改,系统管理等操作
+----------更多代码 正在提交中-------------
 <img src="/other/password.jpg" alt="主页" style="max-width:100%;"><br/>
 
 <h1>最后</h1>
