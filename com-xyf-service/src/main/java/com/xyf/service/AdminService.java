@@ -43,8 +43,6 @@ public class AdminService extends BaseService<Admin>{
     	{
     		return admin;
     	}
-    	
-    	
 		return null;
     	}
     	

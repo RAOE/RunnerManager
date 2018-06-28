@@ -1,2 +1,5 @@
 eclipse.preferences.version=1
+encoding//src/main/java/com/xyf/resolver/XyfHandlerExceptionResolver.java=UTF-8
+encoding//src/main/java/com/xyf/web/controller/AdminController.java=UTF-8
+encoding//src/main/java/com/xyf/web/controller/ProjectController.java=UTF-8
 encoding//src/main/java/com/xyf/web/controller/UserController.java=UTF-8

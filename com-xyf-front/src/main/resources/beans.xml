@@ -63,7 +63,6 @@
      <!-- 这个地方只需要扫描service包即可，因为controller包由springMVC配置扫描，mapper包由上面的mybatis配置扫描 -->
     <context:component-scan base-package="com.xyf.service"></context:component-scan>
 
-    <!-- 开启spring aop 注解支持，要想aop真正生效，还需要把切面类配置成bean -->
-    <aop:aspectj-autoproxy/>
+  
 
 </beans>		                    

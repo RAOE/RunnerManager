@@ -48,7 +48,7 @@ public class UploadUtils {
     	    else
     	    {
     	    	logger.debug("使用七牛云上传文件失败 失败原因",file.getName(),response.bodyString());
-    	    	throw new RuntimeException("使用七牛云上床失败"+file.getName());
+    	    	throw new RuntimeException("使用七牛云上传失败"+file.getName());
     	    }
     	    DefaultPutRet putRet = new Gson().fromJson(response.bodyString(), DefaultPutRet.class);
     	    System.out.println(putRet.key);

@@ -15,9 +15,7 @@ public class UserScoreService extends BaseService<UserScore>{
     @Autowired
 	private UserScoreMapper userScoremapper;
 
-	 /**
-	  * 新增方法查询出所有的
-	  */
+
 	   public List<UserScore> selectAll(UserScore userScore)
 	   {
 	        return userScoremapper.selectAll(userScore);

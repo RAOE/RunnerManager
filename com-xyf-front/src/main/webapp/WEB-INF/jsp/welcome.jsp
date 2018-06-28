@@ -7,12 +7,13 @@
 </head>
 <body>
 <div class="pd-20" style="padding-top:20px;min-height: 436px;">
-  <p class="f-20 text-success">欢迎使用智慧校园乒乓球裁判系统！</p>
+  <p class="f-20 text-success">欢迎使用后台管理系统！</p>
+  <!--标准型-->
+<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=986771570&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:986771570:51" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
+
+  
 </div>
-<footer class="footer">
-  <p>感谢jQuery、layer、laypage、Validform、UEditor、My97DatePicker、iconfont、Datatables、WebUploaded、icheck、highcharts、bootstrap-Switch<br>Copyright &copy;2015 H-ui.admin v2.3 All Rights Reserved.<br>
-    本后台系统由<a href="http://www.h-ui.net/" target="_blank" title="H-ui前端框架">H-ui前端框架</a>提供前端技术支持</p>
-</footer>
+
 <script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/H-ui.js"></script>
 <script>

@@ -4,14 +4,12 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.xyf.pojo.Admin;
 import com.xyf.pojo.AdminScore;
 import com.xyf.pojo.Project;
@@ -61,8 +59,6 @@ public class AdminController {
 	@RequestMapping(value="login.do",method=RequestMethod.POST)
 	public ModelAndView login(String name,String password,HttpServletRequest request)
 	{
-		
-		
       String isUser=request.getParameter("user");
       //运动员登陆 
       if(isUser!=null)
@@ -71,20 +67,16 @@ public class AdminController {
 		 if(user!=null)
 		  {
 		 
-			  System.out.println("运动员登录成功");
+//			  System.out.println("用戶登录成功");
 			  //成功后保存账号session全局保存
-			  ModelAndView modelAndView =new ModelAndView("redirect:/");	      
+			  ModelAndView modelAndView =new ModelAndView("redirect:/");//跳转
 		      request.getSession().setAttribute("user", user);
 			  return modelAndView;	
 		  }	
 		 
-		 
 	   }
       else
       {
-			
-		
-      //测试，查询所有
 //	  List<Admin> ListAdmin=adminService.selectAll();
 //	  System.out.println(ListAdmin.get(0).getName());
 	  Admin adminUser= adminService.checkPassword(name, password);
@@ -99,14 +91,10 @@ public class AdminController {
 	  }
 	    ModelAndView modelAndView=new ModelAndView("adminUser/login");
 	    modelAndView.addObject("message","账号密码错误");
-	    
 		return modelAndView;
-	  	
-
 	}
         ModelAndView modelAndView=new ModelAndView("adminUser/login");
 	    modelAndView.addObject("message","账号密码错误");
-	    
 		return modelAndView;
 
 	}
@@ -114,18 +102,14 @@ public class AdminController {
 	@RequestMapping(value="adminscore.do")
 	public ModelAndView adminscore(HttpServletRequest request,HttpServletResponse response)
 	{
-		
 		ModelAndView modelAndView =new ModelAndView("adminUser/listscore");		
 		AdminScore adminScore=new AdminScore();
 		Admin admin=(Admin) request.getSession().getAttribute("adminUser");
-		System.out.println("当前"+admin.getId());
+//		System.out.println("当前"+admin.getId());
 		adminScore.setAdminId(admin.getId());
         List<AdminScore> AdminScoreList=adminScoreService.selectList(adminScore);
-		
 		modelAndView.addObject("AdminScoreList",AdminScoreList);
 		return modelAndView;
-		
-		
 	}
 	
 	
@@ -194,14 +178,10 @@ public class AdminController {
 		Admin admin=new Admin();
 		admin.setId(id);
 		admin=adminService.selectOne(admin);//以对象来查询
-		System.out.println(admin.toString());
+//		System.out.println(admin.toString());
 		//修改密码并提交
 		admin.setPassword(password);			
 		adminService.update(admin);
-		
-		
-		
-		
 		return new AjaxResult().successInstance("提交成功,重新登陆生效");
 		
 	}
@@ -246,10 +226,6 @@ public class AdminController {
 		 * 不允许重复id
 		 * 
 		 */
-        
-		
-		
-		
 		Admin admin=new Admin();
 		admin.setName(name);
 	    if(adminService.isExisted(admin))
@@ -274,16 +250,8 @@ public class AdminController {
         	
         }
         
-        
-        
-        
-        
-        
         adminService.insert(admin);
-		System.out.println(admin.toString()+role);
-		
-		
-		
+//		System.out.println(admin.toString()+role);
         return AjaxResult.successInstance("提交成功");
 		
 	}
@@ -295,8 +263,6 @@ public class AdminController {
 		@RequestMapping("/score2.do")
 		public ModelAndView score(HttpServletRequest request,HttpServletResponse response)
 		{
-	        
-			
 			List<Project> projectList=projectService.selectList();	
 			request.setAttribute("projectList", projectList);
 			//遍历当前项目的所有项目并且将项目保存在score里的select标签里
@@ -321,23 +287,12 @@ public class AdminController {
 		    UserScore userScore= new UserScore();
 			String name=request.getParameter("project");
 			Project project = new Project();
-
 			project.setName(name);
 			project=projectService.selectOne(project);
-            System.out.println(project.toString());
-
 		    userScore.setProjectId(project.getId());
-            System.out.println(userScore.toString());
-
-		    
-		    
 		    userScore=userScoreService.selectOne(userScore);
-		    
 		    List<UserScore> userScoreList=userScoreService.selectLast(userScore);
-		    //测试ok	   
 			modelAndView.addObject("userScoreList",userScoreList);
-		    
-			
 		    return modelAndView;
 			
 					

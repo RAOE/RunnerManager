@@ -4,7 +4,7 @@
   <artifactId>com-xyf-parent</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
- 
+ <!-- 通用pom 父文件 所有文件都依赖于此 -->
   
 	<dependencyManagement>
         <dependencies>

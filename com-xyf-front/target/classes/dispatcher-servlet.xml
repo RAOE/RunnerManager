@@ -24,8 +24,13 @@
 	<mvc:annotation-driven />
     
     <!-- 开启spring aop 注解支持 -->
+    <!-- 面向切面编程 -->
     <aop:aspectj-autoproxy/>
-
+    <bean class="com.xyf.web.aop.LogAspect"></bean>
+    
+    
+    
+    
 	<!-- 约定大于配置：约定视图页面的全路径 = prefix + viewName + suffix -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/"></property>

@@ -1,6 +1,5 @@
 package com.xyf.web.controller;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -8,20 +7,14 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.http.HttpRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.context.request.WebRequest;
-import org.springframework.web.context.support.HttpRequestHandlerServlet;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.xyf.pojo.Project;
@@ -46,12 +39,12 @@ private ProjectUserSerivce projectUserSerivce;
 	    @InitBinder
 	    protected void initBinder(WebDataBinder binder) {
 	        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-	        //参数true表示允许日期为空（null、""）
+	        //鍙傛暟true琛ㄧず鍏佽鏃ユ湡涓虹┖锛坣ull銆�""锛�
 	        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
 	    }
 	
 	/**
-	 * 遍历当前的比赛项目
+	 * 閬嶅巻褰撳墠鐨勬瘮璧涢」鐩�
 	 * @return
 	 */
 	 @Autowired
@@ -62,7 +55,7 @@ private ProjectUserSerivce projectUserSerivce;
 	public ModelAndView list(HttpServletRequest request,HttpServletResponse response)
 	{
 		
-		//查询出所有的比赛项目
+		//鏌ヨ鍑烘墍鏈夌殑姣旇禌椤圭洰
 		List<Project> projectList=projectService.selectList();
 		
 		request.setAttribute("projectList", projectList);
@@ -70,7 +63,7 @@ private ProjectUserSerivce projectUserSerivce;
 	}
    
 	/**
-	 * 转到添加页面
+	 * 杞埌娣诲姞椤甸潰
 	 * @return
 	 */
 	@RequestMapping(value="/add.do",method=RequestMethod.GET)
@@ -79,7 +72,7 @@ private ProjectUserSerivce projectUserSerivce;
 		return new ModelAndView("/project/add");
 	}
 	/**
-	 * 添加一个新的项目
+	 * 娣诲姞涓�涓柊鐨勯」鐩�
 	 * @return
 	 */
 	@RequestMapping(value="add.do",method=RequestMethod.POST)
@@ -87,11 +80,11 @@ private ProjectUserSerivce projectUserSerivce;
 			String location,String country)
 	{
 		
-		//先判断添加的是否为空如果为空则返回失败
+		//鍏堝垽鏂坊鍔犵殑鏄惁涓虹┖濡傛灉涓虹┖鍒欒繑鍥炲け璐�
 		if(CommonUtils.isEmpty(name)||CommonUtils.isEmpty(description)||CommonUtils.isEmpty(location)
 				||CommonUtils.isEmpty(country))
 		{
-			return new AjaxResult().errorInstance("添加项目失败,请填写完整信息！");
+			return new AjaxResult().errorInstance("娣诲姞椤圭洰澶辫触,璇峰～鍐欏畬鏁翠俊鎭紒");
 			
 		}
 		else
@@ -102,7 +95,7 @@ private ProjectUserSerivce projectUserSerivce;
 		project.setDescription(description);
 		project.setCountry(country);
 		project.setLocation(location);
-		//插入数据库
+		//鎻掑叆鏁版嵁搴�
 		projectService.insert(project);
 		
 		
@@ -110,7 +103,7 @@ private ProjectUserSerivce projectUserSerivce;
 		
 		System.out.println(project.toString());
 		
-        return AjaxResult.successInstance("比赛项目添加成功");
+        return AjaxResult.successInstance("姣旇禌椤圭洰娣诲姞鎴愬姛");
 		}
 	}
 	
@@ -119,14 +112,14 @@ private ProjectUserSerivce projectUserSerivce;
 	{
 		System.out.println(id);
         projectService.delete(id);			
-		return new  AjaxResult().successInstance("删除成功");
+		return new  AjaxResult().successInstance("鍒犻櫎鎴愬姛");
 			
 	}
 
 	
 	
 /**
- * 转到比赛的得分界面
+ * 杞埌姣旇禌鐨勫緱鍒嗙晫闈�
  * @return
  */
 	@RequestMapping("/score.do")
@@ -136,14 +129,14 @@ private ProjectUserSerivce projectUserSerivce;
 		
 		List<Project> projectList=projectService.selectList();	
 		request.setAttribute("projectList", projectList);
-		//遍历当前项目的所有项目并且将项目保存在score里的select标签里
+		//閬嶅巻褰撳墠椤圭洰鐨勬墍鏈夐」鐩苟涓斿皢椤圭洰淇濆瓨鍦╯core閲岀殑select鏍囩閲�
 		
 		return new ModelAndView("/project/score");
 				
 	}
 	
 	/**
-	 * 显示成绩的信息
+	 * 鏄剧ず鎴愮哗鐨勪俊鎭�
 	 * @param request
 	 * @param response
 	 * @return
@@ -155,17 +148,17 @@ private ProjectUserSerivce projectUserSerivce;
 		ModelAndView modelAndView = new ModelAndView("/score/listscore");
 
 		String name=request.getParameter("project");
-		//根据比赛的名称找到当前比赛的成绩
+		//鏍规嵁姣旇禌鐨勫悕绉版壘鍒板綋鍓嶆瘮璧涚殑鎴愮哗
 		
 		
 		Project project = new Project();
 		project.setName(name);
 		project=projectService.selectOne(project);
-//		找到当前比赛的所有成绩信息
+//		鎵惧埌褰撳墠姣旇禌鐨勬墍鏈夋垚缁╀俊鎭�
 		List<User> userList=projectUserSerivce.selectSecondListByFirstId(project.getId());	  
 		modelAndView.addObject("userList",userList);
        
-//		System.out.println("当前"+project.getId());
+//		System.out.println("褰撳墠"+project.getId());
 	    request.setAttribute("projectId", project.getId());	
 		
 		
@@ -176,17 +169,17 @@ private ProjectUserSerivce projectUserSerivce;
 	}
 	
 	/**
-	 * 转到审核比赛成绩界面
+	 * 杞埌瀹℃牳姣旇禌鎴愮哗鐣岄潰
 	 * @return
 	 */
 	@RequestMapping(value="verify.do",method=RequestMethod.GET)
 	public  ModelAndView verify()
 	{
 		/*
-		 *  遍历当前项目
+		 *  閬嶅巻褰撳墠椤圭洰
 		 */
 		
-		//查询出所有的比赛项目
+		//鏌ヨ鍑烘墍鏈夌殑姣旇禌椤圭洰
 		List<Project> projectList=projectService.selectList();
 		
 		ModelAndView modelAndView = new ModelAndView("/project/list2");
