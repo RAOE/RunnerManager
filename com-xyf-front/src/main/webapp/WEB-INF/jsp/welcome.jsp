@@ -6,14 +6,20 @@
 <title>我的桌面</title>
 </head>
 <body>
+
 <div class="pd-20" style="padding-top:20px;min-height: 436px;">
   <p class="f-20 text-success">欢迎使用后台管理系统！</p>
   <!--标准型-->
 <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=986771570&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:986771570:51" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
-
-  
 </div>
-
+<footer class="footer mt-20">
+	<div class="container-fluid">
+		<nav> <a href="#" target="_blank">关于我们</a> <span class="pipe">|</span> <a href="#" target="_blank">联系我们</a> <span class="pipe">|</span> <a href="#" target="_blank">法律声明</a> </nav>
+		<p>Copyright &copy;2018 H-ui.net All Rights Reserved. <br>
+			<a href="http://www.miitbeian.gov.cn/" target="_blank" rel="nofollow">京ICP备1000000号</a><br>
+		</p>
+	</div>
+</footer>
 <script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/H-ui.js"></script>
 <script>

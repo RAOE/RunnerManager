@@ -105,7 +105,6 @@ public class AdminController {
 		ModelAndView modelAndView =new ModelAndView("adminUser/listscore");		
 		AdminScore adminScore=new AdminScore();
 		Admin admin=(Admin) request.getSession().getAttribute("adminUser");
-//		System.out.println("当前"+admin.getId());
 		adminScore.setAdminId(admin.getId());
         List<AdminScore> AdminScoreList=adminScoreService.selectList(adminScore);
 		modelAndView.addObject("AdminScoreList",AdminScoreList);
@@ -140,12 +139,10 @@ public class AdminController {
 	@RequestMapping(value="evaluate.do",method=RequestMethod.GET)
 	public ModelAndView evaluate(HttpServletRequest req,HttpServletResponse resp)
 	{
-			
 		List<Admin>adminList=adminService.selectList();
    		ModelAndView modelAndView = new ModelAndView("user/listadmin");
    		modelAndView.addObject("adminList",adminList);   		
    		return modelAndView;
-		
 	}	
 
 	/**
@@ -178,7 +175,6 @@ public class AdminController {
 		Admin admin=new Admin();
 		admin.setId(id);
 		admin=adminService.selectOne(admin);//以对象来查询
-//		System.out.println(admin.toString());
 		//修改密码并提交
 		admin.setPassword(password);			
 		adminService.update(admin);
@@ -204,7 +200,6 @@ public class AdminController {
 	@RequestMapping(value="add.do",method=RequestMethod.POST)
 	public  @ResponseBody AjaxResult addSubmit(HttpServletRequest request,HttpServletResponse response)
 	{
-		
 		
 		String role=request.getParameter("role");
         String name=request.getParameter("name");
@@ -232,8 +227,6 @@ public class AdminController {
 	    {
 	    	return AjaxResult.errorInstance("提交失败，账号已经存在");
 	    }
-
-		
 		admin.setPassword(password);
 		admin.setRealname(name);
 		admin.setDescription(description);
@@ -242,18 +235,14 @@ public class AdminController {
         if(role!=null)//当前是裁判长
         {
     	   admin.setRoleid(true);
-    	  
         }
         else
         {
      	   admin.setRoleid(false);
-        	
         }
         
         adminService.insert(admin);
-//		System.out.println(admin.toString()+role);
         return AjaxResult.successInstance("提交成功");
-		
 	}
 	
 	/**
