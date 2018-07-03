@@ -28,11 +28,12 @@ JDK版本：jdk1.8
 Tomcat版本：Tomcat8.x
 
 <h4>2.初始化项目</h4>
-在你的Mysql中，创建一个数据库名称为 pingpongmanager 的数据库，并导入我提供的 .sql 文件。<br/>
-进入src/main/resources修改beans.xml配置文件,把数据库登录名和密码，改为你本地的<br/>
-使用 Eclipse 导入项目，选择Maven项目选项，一路点击next就行，导入项目后，如果src目录等，都没显示出来，别急先使用Maven构建该项目<br/>
-在 Eclipse 中，配置我们的 Tomcat， 然后把使用Maven构建好的项目添加到Tomcat中<br/>
-Maven install 顺序 : <br/><br/>
+*在你的Mysql中，创建一个数据库名称为 pingpongmanager 的数据库，并导入我提供的 .sql 文件。<br/>
+*进入src/main/resources修改beans.xml配置文件,把数据库登录名和密码，改为你本地的<br/>
+*使用 Eclipse 导入项目，选择Maven项目选项，一路点击next就行，导入项目后，如果src目录等，都没显示出来，别急先使用Maven构建该项目<br/>
+*在 Eclipse 中，配置我们的 Tomcat， 然后把使用Maven构建好的项目添加到Tomcat中<br/>
+Maven install 顺序 :
+<br/><br/
 *   com-xyf-parent <br/>
 *   com-xyf-pojo <br/>
 *   com-xyf-common <br/>
@@ -92,9 +93,9 @@ Maven install 顺序 : <br/><br/>
 ----------更多代码 正在提交中-------------
 <img src="/other/password.jpg" alt="主页" style="max-width:100%;"><br/>
 
-
 <br/>
 <h1>相关的依赖环境</h1>
+<br/>
 <dependencies>
   <!-- spring和springMVC依赖 -->
         <dependency>
@@ -207,7 +208,6 @@ Maven install 顺序 : <br/><br/>
         </dependency>
  </dependencies>
 具体可观看pom.xml文件
-
 
 
 
