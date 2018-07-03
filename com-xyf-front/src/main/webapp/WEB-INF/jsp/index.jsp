@@ -84,19 +84,7 @@
 						</ul>
 					</dd>
 				</dl>
-				<dl id="menu-picture">
-					<dt>
-						<i class="Hui-iconfont">&#xe613;</i> 裁判栏目<i
-							class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
-					</dt>
-					<dd>
-						<ul>
-							<li><a _href="<%=ctxPath%>/adminUser/adminscore.do"
-								href="javascript:void(0)">查看等级信息</a></li>
 
-						</ul>
-					</dd>
-				</dl>
 
 
 
@@ -121,7 +109,7 @@
 				<c:if test="${adminUser.roleid==true}">
 					<dl id="menu-comments">
 						<dt>
-							<i class="Hui-iconfont">&#xe62e;</i>裁判长管理<i
+							<i class="Hui-iconfont">&#xe62e;</i>裁判长栏目<i
 								class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
 						</dt>
 						<dd>
@@ -134,13 +122,19 @@
 									href="javascript:void(0)">运动员信息管理</a></li>
 								<li><a _href="<%=ctxPath%>/evaluate/show.do"
 									href="javascript:void(0)">查看评价</a></li>
-
+								<li><a _href="<%=ctxPath%>/adminUser/adminscore.do"
+									href="javascript:void(0)">查看等级信息</a></li>
 							</ul>
 						</dd>
-
 					</dl>
 				</c:if>
 			</c:if>
+			<dl id="menu-comments">
+				<dt>
+					<i class="Hui-iconfont">&#xe62e;</i>讨论区<i
+						class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
+				</dt>
+			</dl>
 			<dl id="menu-comments">
 				<dt>
 					<i class="Hui-iconfont">&#xe62e;</i>系统管理<i

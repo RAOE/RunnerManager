@@ -67,8 +67,6 @@ public class AdminController {
 		 if(user!=null)
 		  {
 		 
-//			  System.out.println("用戶登录成功");
-			  //成功后保存账号session全局保存
 			  ModelAndView modelAndView =new ModelAndView("redirect:/");//跳转
 		      request.getSession().setAttribute("user", user);
 			  return modelAndView;	
@@ -77,8 +75,6 @@ public class AdminController {
 	   }
       else
       {
-//	  List<Admin> ListAdmin=adminService.selectAll();
-//	  System.out.println(ListAdmin.get(0).getName());
 	  Admin adminUser= adminService.checkPassword(name, password);
 	  if(adminUser!=null)
 	  {
@@ -283,8 +279,6 @@ public class AdminController {
 		    List<UserScore> userScoreList=userScoreService.selectLast(userScore);
 			modelAndView.addObject("userScoreList",userScoreList);
 		    return modelAndView;
-			
-					
 		}
 		  
 	
