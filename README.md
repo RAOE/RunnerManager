@@ -16,9 +16,6 @@ ORM框架：Mybatis
 
 前端框架：Hui
 
-
-
-
 <h1>快速上手</h1>
 
 <h4>1.运行环境和所需工具</h4>
@@ -95,8 +92,9 @@ Maven install 顺序 : <br/><br/>
 ----------更多代码 正在提交中-------------
 <img src="/other/password.jpg" alt="主页" style="max-width:100%;"><br/>
 
-<h1>相关的依赖环境</h1>
 
+<br/>
+<h1>相关的依赖环境</h1>
 <dependencies>
   <!-- spring和springMVC依赖 -->
         <dependency>
@@ -215,7 +213,7 @@ Maven install 顺序 : <br/><br/>
 
 
 <h1>最后</h1>
-项目以做学习交流为目的。因为项目经验不足，项目可能会有很多潜在的问题，希望多多指教。如果觉得不错，请为它STAR！
+项目以做学习交流为目的。希望多多指教。如果觉得不错，请为它STAR！
 借鉴或参考请先联系作者    <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=986771570&site=qq&menu=yes">联系我</a>
 
 (986771570@qq.com)，有项目或者其他技术上的问题可以随时联系我，我会尽力去为您解答，欢迎Star或Fork，您的star和Fork是对作品的认同与肯定，感谢！
