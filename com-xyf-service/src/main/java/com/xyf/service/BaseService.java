@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.xyf.mapper.IMapper;
 
 public class BaseService<T> {
@@ -110,5 +111,27 @@ public class BaseService<T> {
         List<T> list = mapper.select(pojo);
         return list != null && list.size() > 0;
     }
+/**
+ * pagehelper插件 定义页码 分页大小  对象
+ * @param pageNum
+ * @param pageSize
+ * @param pojo
+ * @return
+ */
+    public PageInfo<T> page(int pageNum, int pageSize, T pojo) {
+        PageHelper.startPage(pageNum, pageSize);//注意pageNum表示页码，从1开始
+        List<T> list = mapper.select(pojo);//正常执行自己的Mapper的查询方法
+        return new PageInfo<T>(list);
+    }
 
+    public PageInfo<T> page(int pageNum, int pageSize, T pojo, String orderBy) {
+        PageHelper.startPage(pageNum, pageSize);//注意pageNum表示页码，从1开始
+        PageHelper.orderBy(orderBy);
+        List<T> list = mapper.select(pojo);//正常执行自己的Mapper的查询方法
+        return new PageInfo<T>(list);
+    }
+
+    
+    
+    
 }

@@ -2,43 +2,53 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xyf.mapper.UserMapper">
 
-    <insert id="insert" parameterType="User" >
-      insert into t_users (name,password,createTime,phone,isMale,age,weight,description,height,team,isDeleted)
-      values(#{name},#{password},#{createTime},#{phone},#{isMale},#{age},#{weight},#{description},#{height},#{team},0);     
-    </insert>
+	<insert id="insert" parameterType="User">
+		insert into t_users
+		(name,password,createTime,phone,isMale,age,weight,description,height,team,isDeleted)
+		values(#{name},#{password},#{createTime},#{phone},#{isMale},#{age},#{weight},#{description},#{height},#{team},0);
+	</insert>
 
-   <select id="select"  parameterType="User" resultType="User">
-      select * from  t_users     
-    <where>
-    <if test="id!=null">
-       id =#{id}
-    </if>
-    <if test="password!=null">
-       and password=#{password}
-    </if>
-    <if test="phone!=null">
-        and phone=#{phone}
-    
-    </if>
-     <if test="name!=null">
-        and name=#{name}
-    
-    </if>
-          and isDeleted = 0
-    
-    </where>
+	<select id="select" parameterType="User" resultType="User">
+		select * from t_users
+		<where>
+			<if test="id!=null">
+				id =#{id}
+			</if>
+			<if test="password!=null">
+				and password=#{password}
+			</if>
+			<if test="phone!=null">
+				and phone=#{phone}
 
-    </select>
-   
-  <update id="update"  parameterType="User" >
-  update t_users set password=#{password} where id=#{id} and isDeleted =false 
-  </update>
-  
-  
-   
-    <update id="delete"  parameterType="User" >
-      update t_users set isDeleted = 1 where id =#{id}
-    </update>
+			</if>
+			<if test="name!=null">
+				and name=#{name}
+
+			</if>
+			and isDeleted = 0
+
+		</where>
+
+	</select>
+
+	<update id="update" parameterType="User">
+		update t_users set password=#{password} where id=#{id} and isDeleted =false
+	</update>
+
+	<select id="search" parameterType="map" resultType="User">
+		select * from T_Users
+		where isDeleted=false
+		<if test="param!=null">
+			and (name like #{param}
+			or email like #{param}
+			or phone like #{param}
+			or school like #{param})
+		</if>
+	</select>
+
+	<update id="delete" parameterType="User">
+		update t_users set isDeleted = 1 where id =#{id}
+	</update>
 
 
 

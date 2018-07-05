@@ -2,7 +2,9 @@ package com.xyf.web.controller;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.github.pagehelper.PageInfo;
 import com.xyf.pojo.Admin;
 import com.xyf.pojo.Project;
 import com.xyf.pojo.User;
@@ -56,7 +59,9 @@ public class UserController {
 
 		List<User> userList = userService.selectList();
 		req.setAttribute("userList", userList);
-
+		Map<String,Object> params=new HashMap<String,Object>();
+        PageInfo<User> pageInfo = userService.search(1, 20, params);
+        
 		return new ModelAndView("user/list");
 
 	}

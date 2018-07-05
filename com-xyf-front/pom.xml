@@ -56,7 +56,11 @@
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
         </dependency>
-        
+            <dependency>
+      <groupId>com.github.pagehelper</groupId>
+      <artifactId>pagehelper</artifactId>
+      <version>5.1.1</version>
+    </dependency>
         <!-- mybatis和spring整合 -->
         <dependency>
             <groupId>org.mybatis</groupId>
