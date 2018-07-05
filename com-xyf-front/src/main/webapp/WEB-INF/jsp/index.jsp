@@ -135,11 +135,32 @@
 						class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
 				</dt>
 			</dl>
+			
+			<dl id="menu-picture">
+				<dt>
+					<i class="Hui-iconfont">&#xe613;</i>关于我 <i
+						class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
+				</dt>
+				<dd>
+					<ul>
+						<li><a _href="<%=ctxPath%>/author/about.do"
+							href="javascript:void(0)">作者</a></li>
+						<li><a _href="<%=ctxPath%>/author/document.do"
+							href="javascript:void(0)">开发者说明</a></li>
+
+					</ul>
+				</dd>
+			</dl>
+			
+			
+			
 			<dl id="menu-comments">
 				<dt>
 					<i class="Hui-iconfont">&#xe62e;</i>系统管理<i
 						class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
 				</dt>
+
+
 				<dd>
 					<ul>
 						<c:if test="${user!=null}">
@@ -161,6 +182,8 @@
 						</ul>
 				</dd>
 			</dl>
+			
+
 		</div>
 	</aside>
 	<div class="dislpayArrow">

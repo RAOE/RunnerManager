@@ -9,9 +9,7 @@
 
 <div class="pd-20" style="padding-top:20px;min-height: 436px;">
   <p class="f-20 text-success">欢迎使用后台管理系统！</p>
-  <!--标准型-->
-<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=986771570&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:986771570:51" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
-</div>
+ 
 <footer class="footer mt-20">
 	<div class="container-fluid">
 		<nav> <a href="#" target="_blank">关于我们</a> <span class="pipe">|</span> <a href="#" target="_blank">联系我们</a> <span class="pipe">|</span> <a href="#" target="_blank">法律声明</a> </nav>

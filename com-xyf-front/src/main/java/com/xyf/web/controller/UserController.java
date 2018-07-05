@@ -61,7 +61,7 @@ public class UserController {
 		req.setAttribute("userList", userList);
 		Map<String,Object> params=new HashMap<String,Object>();
         PageInfo<User> pageInfo = userService.search(1, 20, params);
-        
+
 		return new ModelAndView("user/list");
 
 	}
