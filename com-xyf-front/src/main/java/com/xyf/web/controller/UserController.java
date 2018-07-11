@@ -47,7 +47,7 @@ public class UserController {
 	}
 
 	/**
-	 * show线上当前所有的运动员
+	 * show线上当前所有的成员
 	 * 
 	 * @param req
 	 * @param resp
@@ -111,7 +111,7 @@ public class UserController {
 	}
 
 	/**
-	 * 用户添加的提交 检查运动员的个人信息 最后处理图片的上传
+	 * 用户添加的提交 检查成员的个人信息 最后处理图片的上传
 	 * 
 	 * @param req
 	 * @param resp
@@ -126,7 +126,7 @@ public class UserController {
 		// 判断基本信息是否填写完整
 		if (CommonUtils.isEmpty(name) || CommonUtils.isEmpty(phone) || CommonUtils.isEmpty(team)
 				|| CommonUtils.isEmpty(description)) {
-			return AjaxResult.errorInstance("添加运动员失败,请填写名称,电话,队伍,描述等基本信息");
+			return AjaxResult.errorInstance("添加成员失败,请填写名称,电话,队伍,描述等基本信息");
 
 		} else {
 
@@ -147,7 +147,7 @@ public class UserController {
 
 			user.setcreateTime(new Date());
 			userService.insert(user);
-			return AjaxResult.successInstance("添加运动员成功");
+			return AjaxResult.successInstance("添加成员成功");
 		}
 	}
 
@@ -155,10 +155,10 @@ public class UserController {
 	@RequestMapping("delete.do")
 	public @ResponseBody AjaxResult deleted(Long id) {
 		if (id == 0) {
-			return AjaxResult.errorInstance("删除运动员失败");
+			return AjaxResult.errorInstance("删除成员失败");
 		} else {
 			// 执行直接删除
-			// 删除前先查找当前id的运动员信息
+			// 删除前先查找当前id的成员信息
 			userService.delete(id);
 
 			return AjaxResult.successInstance("删除成功");
@@ -215,7 +215,7 @@ public class UserController {
 	}
 
 	/**
-	 * 转到为一名运动员添加成绩
+	 * 转到为一名成员添加成绩
 	 */
 	@RequestMapping(value = "/addscore.do")
 	public ModelAndView addscore(Long projectId, Long userId, HttpServletRequest request) {

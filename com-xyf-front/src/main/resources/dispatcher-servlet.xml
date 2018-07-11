@@ -64,6 +64,7 @@
     <mvc:resources location="/IE6/" mapping="/IE6/**" />
     <mvc:resources location="/js/" mapping="/js/**" />
 	<mvc:resources location="/skin/" mapping="/skin/**" />
-	
- 
+    <mvc:resources location="/utf8-jsp/" mapping="/utf8-jsp/**" />
+    
+    
 </beans>

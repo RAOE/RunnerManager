@@ -131,9 +131,17 @@
 			</c:if>
 			<dl id="menu-comments">
 				<dt>
-					<i class="Hui-iconfont">&#xe62e;</i>讨论区<i
+						<i class="Hui-iconfont">&#xe62e;</i>讨论区<i
 						class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
 				</dt>
+				<dd>
+					<ul>
+						<li><a _href="<%=ctxPath%>/message/show.do"
+							href="javascript:void(0)">讨论区1</a></li>
+					</ul>
+				</dd>
+				
+				
 			</dl>
 			
 			<dl id="menu-picture">
