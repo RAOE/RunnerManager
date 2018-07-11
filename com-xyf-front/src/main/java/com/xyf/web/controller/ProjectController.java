@@ -84,7 +84,7 @@ private ProjectUserSerivce projectUserSerivce;
 		if(CommonUtils.isEmpty(name)||CommonUtils.isEmpty(description)||CommonUtils.isEmpty(location)
 				||CommonUtils.isEmpty(country))
 		{
-			return new AjaxResult().errorInstance("娣诲姞椤圭洰澶辫触,璇峰～鍐欏畬鏁翠俊鎭紒");
+			return new AjaxResult().errorInstance("添加失败");
 			
 		}
 		else
@@ -103,7 +103,7 @@ private ProjectUserSerivce projectUserSerivce;
 		
 		System.out.println(project.toString());
 		
-        return AjaxResult.successInstance("姣旇禌椤圭洰娣诲姞鎴愬姛");
+        return AjaxResult.successInstance("添加成功");
 		}
 	}
 	
@@ -112,7 +112,7 @@ private ProjectUserSerivce projectUserSerivce;
 	{
 		System.out.println(id);
         projectService.delete(id);			
-		return new  AjaxResult().successInstance("鍒犻櫎鎴愬姛");
+		return new  AjaxResult().successInstance("删除成功");
 			
 	}
 
@@ -148,13 +148,11 @@ private ProjectUserSerivce projectUserSerivce;
 		ModelAndView modelAndView = new ModelAndView("/score/listscore");
 
 		String name=request.getParameter("project");
-		//鏍规嵁姣旇禌鐨勫悕绉版壘鍒板綋鍓嶆瘮璧涚殑鎴愮哗
 		
 		
 		Project project = new Project();
 		project.setName(name);
 		project=projectService.selectOne(project);
-//		鎵惧埌褰撳墠姣旇禌鐨勬墍鏈夋垚缁╀俊鎭�
 		List<User> userList=projectUserSerivce.selectSecondListByFirstId(project.getId());	  
 		modelAndView.addObject("userList",userList);
        

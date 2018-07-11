@@ -65,6 +65,7 @@
     <mvc:resources location="/js/" mapping="/js/**" />
 	<mvc:resources location="/skin/" mapping="/skin/**" />
     <mvc:resources location="/utf8-jsp/" mapping="/utf8-jsp/**" />
+    <mvc:resources location="/ueditor/" mapping="/ueditor/**" />
     
     
 </beans>

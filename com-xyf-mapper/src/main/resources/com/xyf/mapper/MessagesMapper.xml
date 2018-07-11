@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyf.mapper.MessagesMapper">
+
+  <select id="select"  parameterType="Messages" resultType="Messages">
+  select * from t_messages 
+   <where>
+               <if test="id!=null"> and id=#{id} </if>
+               and isDeleted = 0
+               
+  </where>
+  order by  createTime desc
+  </select>
+    <select id="selectAll"  parameterType="Messages" resultType="Messages">
+      select * from t_messages  where isDeleted = 0
+    </select>
+
+ 
+  
+    <insert id="insert" parameterType="Messages" >
+      insert into t_Messages (id,createTime,isAnonymous,message,isAdmin,isDeleted,name)
+      values(#{id},#{createTime},#{isAnonymous},#{message},#{isAdmin},0,#{name});     
+    </insert>
+  
+
+</mapper>

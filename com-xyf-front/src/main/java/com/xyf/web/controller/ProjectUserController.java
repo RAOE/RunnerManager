@@ -32,14 +32,12 @@ private UserScoreService userScoreService;
 
 
 /**
- * 显示项目中的成员
+ * 鏄剧ず椤圭洰涓殑鎴愬憳
  * @return
  */
   @RequestMapping("/update.do")
   public ModelAndView update(Long projectId,HttpServletRequest request,HttpServletResponse response)
   {
-	  //根据当前的id查询出当前项目的所有运动员
-	  //查询中间表
 	   ModelAndView modelAndView=new ModelAndView("projectUser/update");
        List<User> userList=projectUserSerivce.selectSecondListByFirstId(projectId);	  
 	   modelAndView.addObject("userList",userList);
@@ -49,7 +47,7 @@ private UserScoreService userScoreService;
   }
 
   /**
-   * 返回比赛成员的添加页面
+   * 杩斿洖姣旇禌鎴愬憳鐨勬坊鍔犻〉闈�
    * @param projectId
    * @param request
    * @param response
@@ -59,7 +57,7 @@ private UserScoreService userScoreService;
   public ModelAndView add(String projectId,HttpServletRequest request,HttpServletResponse response)
   {
 	  /**
-	   * 遍历当前的所有成员
+	   * 閬嶅巻褰撳墠鐨勬墍鏈夋垚鍛�
 	   */
 	  ModelAndView modelAndView=new ModelAndView("/projectUser/add");
 	  List<User> userList = userService.selectList();
@@ -67,12 +65,12 @@ private UserScoreService userScoreService;
 	  modelAndView.addObject("userList",userList);
       request.setAttribute("projectId", projectId);	   
 
-      //需要添加项目的id     
+      //闇�瑕佹坊鍔犻」鐩殑id     
  	  return modelAndView; 
 	  
   }
   /**
-   * 用于删除项目中的成员
+   * 鐢ㄤ簬鍒犻櫎椤圭洰涓殑鎴愬憳
    * @param projectId
    * @param request
    * @param response
@@ -82,10 +80,10 @@ private UserScoreService userScoreService;
   public @ResponseBody AjaxResult delete(Long id,Long projectId,HttpServletRequest request,HttpServletResponse response)
   {
 	  /**
-	   * 移除项目中的比赛成员
+	   * 绉婚櫎椤圭洰涓殑姣旇禌鎴愬憳
 	   */  
 	  
-	  //根据用户的id以及项目id找到对应列并且删除
+	  //鏍规嵁鐢ㄦ埛鐨刬d浠ュ強椤圭洰id鎵惧埌瀵瑰簲鍒楀苟涓斿垹闄�
 	 ProjectUser projectUser=new ProjectUser();
 	 projectUser.setProjectid(projectId);
 	 projectUser.setUserid(id);
@@ -100,7 +98,7 @@ private UserScoreService userScoreService;
   
   
   /**
-   * 将运动员添加到比赛项目中
+   * 灏嗚繍鍔ㄥ憳娣诲姞鍒版瘮璧涢」鐩腑
    * @param request
    * @param response
    * @return
@@ -109,14 +107,14 @@ private UserScoreService userScoreService;
   public @ResponseBody AjaxResult  addSubmit(Long projectId,Long id)
   {
 	  
-	  //转换String为int
+	  //杞崲String涓篿nt
 	  
 	  if(id==0)
 	  {
-	      return new AjaxResult().errorInstance("添加失败");
+	      return new AjaxResult().errorInstance("提交成功");
 		  
 	  }
-	  //1判断该成员是否已经在项目中，如果已经存在则不能反复添加
+	  //1鍒ゆ柇璇ユ垚鍛樻槸鍚﹀凡缁忓湪椤圭洰涓紝濡傛灉宸茬粡瀛樺湪鍒欎笉鑳藉弽澶嶆坊鍔�
 /**
  * select u.* from t_usertoproject up left join t_project p on up.projectid = p.id 
    left join t_users u on u.id = up.userid where p.id = 2 and u.id = 1
@@ -124,12 +122,12 @@ private UserScoreService userScoreService;
 	  else
 	  {
 //		  User user=projectUserSerivce.selectSecondOneByFirstId(projectId2);
-	  //1.如果成员已经存在则不能反复添加	  
+	  //1.濡傛灉鎴愬憳宸茬粡瀛樺湪鍒欎笉鑳藉弽澶嶆坊鍔�	  
 		  
 		  
-	  //2..项目的id
-	  //3...成员的id
-	  //4....插入中间表
+	  //2..椤圭洰鐨刬d
+	  //3...鎴愬憳鐨刬d
+	  //4....鎻掑叆涓棿琛�
 		  ProjectUser projectUser=new ProjectUser();
 		  
 		  projectUser.setUserid(id);
@@ -140,7 +138,7 @@ private UserScoreService userScoreService;
 		  
 		  if(projectUserSerivce.isExisted(projectUser))
 		  {
-			  return AjaxResult.errorInstance("用户已经存在,请不要反复添加 ");
+			  return AjaxResult.errorInstance("提交失败，账户已经存在");
 			  
 		  }
 		  else
@@ -156,12 +154,12 @@ private UserScoreService userScoreService;
 
   }
  /**
-  * 用于跳转到成绩页面 
-  * 1.显示裁判
-  * 2.显示裁判的成绩
-  * 3.显示运动员
-  * 4.显示比赛项目
-  * 5.显示比赛 
+  * 鐢ㄤ簬璺宠浆鍒版垚缁╅〉闈� 
+  * 1.鏄剧ず瑁佸垽
+  * 2.鏄剧ず瑁佸垽鐨勬垚缁�
+  * 3.鏄剧ず杩愬姩鍛�
+  * 4.鏄剧ず姣旇禌椤圭洰
+  * 5.鏄剧ず姣旇禌 
   * 
   * @return
   */
@@ -179,11 +177,11 @@ left join t_admin a on a.id =us.adminId  where us.isDeleted =0
     @RequestMapping(value="showallscore.do",method=RequestMethod.GET)
 	public  ModelAndView score(Long projectId)
 	{
-	    //需要projectid
+	    //闇�瑕乸rojectid
 	    UserScore userScore= new UserScore();
 	    userScore.setProjectId(projectId);
 	    List<UserScore> userScoreList=userScoreService.selectAll(userScore);
-	    //测试ok	   
+	    //娴嬭瘯ok	   
 	    ModelAndView modelAndView = new ModelAndView("/score/showscore");
 		modelAndView.addObject("userScoreList",userScoreList);
 	    
@@ -196,11 +194,11 @@ left join t_admin a on a.id =us.adminId  where us.isDeleted =0
    	public  @ResponseBody AjaxResult scoreUp(Long id)
    	{
     	
-    	//当前的id
+    	//褰撳墠鐨刬d
     	UserScore userScore = new UserScore();
     	userScore.setId(id);
     	userScoreService.delete(userScore);	
-    	return AjaxResult.successInstance("审核通过");
+    	return AjaxResult.successInstance("提交成功");
   	
    	}
    

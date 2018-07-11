@@ -16,6 +16,7 @@ ORM框架：Mybatis
 
 前端框架：Hui
 
+其他插件: Ueditor
 <h1>快速上手</h1>
 
 <h4>1.运行环境和所需工具</h4>
@@ -73,7 +74,9 @@ Maven install 顺序 :
 
 <h3>3.裁判长模块</h3>
 <br/>
- <img src="/other/project.jpg" alt="主页" style="max-width:100%;"><br/>
+ <img src="/other/admin3.jpg" alt="主页" style="max-width:100%;"><br/>
+
+
 
 拥有最高权限
 可以添加裁判信息
@@ -87,6 +90,10 @@ Maven install 顺序 :
 运动员可以查看比赛的评分
 
 <h3>4.其他模块</h3>
+ <img src="/other/message.jpg" alt="主页" style="max-width:100%;"><br/>
+ <img src="/other/password.jpg" alt="主页" style="max-width:100%;"><br/>
+
+
 <br/>
 
 密码修改,系统管理等操作

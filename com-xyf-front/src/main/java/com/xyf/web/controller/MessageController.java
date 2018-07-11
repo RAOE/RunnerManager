@@ -1,11 +1,21 @@
 package com.xyf.web.controller;
 
+import java.io.IOException;
+import java.util.Date;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import com.xyf.pojo.Messages;
+import com.xyf.service.MessageService;
 
 /**
- * ÌÖÂÛÇøµÄ´´½¨
+ * è®¨è®ºåŒºçš„åˆ›å»º
  * @author Ray
  *
  */
@@ -13,14 +23,48 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/message")
 public class MessageController {
 
+	@Autowired
+	private MessageService messagesService;
+
+	/**
+	 * æ˜¾ç¤ºæ‰€æœ‰
+	 * 
+	 * @return
+	 */
 	@RequestMapping("/show.do")
-	public ModelAndView show()
-	{
-		return new ModelAndView("user/message");
+	public ModelAndView show(Long id) {
+
+		List<Messages> list = messagesService.selectList();
+        ModelAndView modelAndView = new ModelAndView("user/message");
+        modelAndView.addObject("messageList",list);
+        return modelAndView;
+        
 	}
-	
-	
-	
-	
-	
+
+	/**
+	 * è®¨è®ºåŒº
+	 * @return 
+	 * 
+	 * @return
+	 * @throws IOException 
+	 */
+	@RequestMapping("/submit.do")
+	public ModelAndView submit( HttpServletRequest req, HttpServletResponse resp)
+			throws IOException {
+		
+		
+		req.setCharacterEncoding("utf-8");
+		resp.setCharacterEncoding("utf-8");
+		String content = req.getParameter("editorValue");
+		Messages ms = new Messages();
+		ms.setMessage(content);
+		ms.setIsAdmin(true);
+		ms.setCreateTime(new Date());
+		ms.setName("ç”¨æˆ·");
+		System.out.println(ms.toString());
+		messagesService.insert(ms);
+		resp.sendRedirect("./show.do");
+		return null;
+	}
+
 }

@@ -169,7 +169,6 @@ public class UserController {
 	public ModelAndView registerPage(User user) {
 
 		ModelAndView modelAndView = new ModelAndView("register");
-
 		return modelAndView;
 	}
 
@@ -181,7 +180,7 @@ public class UserController {
 	@RequestMapping(value = "/reg.do", method = RequestMethod.POST)
 	public ModelAndView regSubmit(HttpServletRequest req, HttpServletResponse resp) {
 		User user = new User();
-		String email = req.getParameter("user");
+//		String email = req.getParameter("user");
 		String name = req.getParameter("Nickname");
 		String pwd = req.getParameter("pwd");
 		user.setName(name);

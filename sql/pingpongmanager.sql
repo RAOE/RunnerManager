@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50620
 File Encoding         : 65001
 
-Date: 2018-06-05 00:12:48
+Date: 2018-07-11 15:09:31
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -29,7 +29,7 @@ CREATE TABLE `t_admin` (
   `roleid` tinyint(4) DEFAULT NULL,
   `realname` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_admin
@@ -42,6 +42,7 @@ INSERT INTO `t_admin` VALUES ('7', 'test', '1555555', '123456', 'xxxx', '0', '0'
 INSERT INTO `t_admin` VALUES ('8', 'adminn', '1555555', '123456', 'xxx', '0', '0', '凯');
 INSERT INTO `t_admin` VALUES ('9', 'admin9', '15555', '123123', 'xx', '0', '0', 'xxx');
 INSERT INTO `t_admin` VALUES ('10', 'admin99', '1555555', '123123', '333', '0', '0', '小小');
+INSERT INTO `t_admin` VALUES ('11', '1', 'a', '1', 'a', '0', '0', 'a');
 
 -- ----------------------------
 -- Table structure for `t_admintoevaluate`
@@ -86,6 +87,28 @@ INSERT INTO `t_evaluate` VALUES ('1', null);
 INSERT INTO `t_evaluate` VALUES ('2', null);
 
 -- ----------------------------
+-- Table structure for `t_messages`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_messages`;
+CREATE TABLE `t_messages` (
+  `id` bigint(22) NOT NULL AUTO_INCREMENT,
+  `name` varchar(22) DEFAULT NULL,
+  `message` varchar(2000) DEFAULT NULL,
+  `createTime` datetime DEFAULT NULL,
+  `isAdmin` tinyint(2) DEFAULT NULL,
+  `isDeleted` tinyint(2) DEFAULT NULL,
+  `isAnonymous` tinyint(2) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_messages
+-- ----------------------------
+INSERT INTO `t_messages` VALUES ('32', '用户', '<p>ces<img src=\"http://img.baidu.com/hi/jx2/j_0066.gif\"/></p>', '2018-07-11 14:47:53', '1', '0', null);
+INSERT INTO `t_messages` VALUES ('33', '用户', '<p><img src=\"http://img.baidu.com/hi/jx2/j_0006.gif\"/>11</p>', '2018-07-11 14:48:03', '1', '0', null);
+INSERT INTO `t_messages` VALUES ('34', '用户', '<p><img src=\"/com-xyf-front//ueditor/jsp/upload/image/20180711/1531292079639072413.jpg\" title=\"1531292079639072413.jpg\" alt=\"Enemy03.jpg\"/>提交你的评论</p>', '2018-07-11 14:54:45', '1', '0', null);
+
+-- ----------------------------
 -- Table structure for `t_project`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_project`;
@@ -99,31 +122,34 @@ CREATE TABLE `t_project` (
   `country` varchar(50) DEFAULT NULL,
   `isDeleted` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_project
 -- ----------------------------
-INSERT INTO `t_project` VALUES ('2', '2018-03-17 22:36:07', null, '亚锦赛女子单打', '何盈VS玛利亚', 'A区教学楼', '四川大学', '0');
+INSERT INTO `t_project` VALUES ('2', '2018-03-17 22:36:07', null, '亚锦赛女子单打', '何盈VS玛利亚', 'A区教学楼', '四川大学', '1');
 INSERT INTO `t_project` VALUES ('3', '2018-03-17 22:56:10', null, '2017年乒乓球亚锦赛 ', '赛前热身训练', 'B区教学楼', '浙江大学', '1');
-INSERT INTO `t_project` VALUES ('4', '2018-03-17 23:04:24', null, '亚锦赛男子双打', '朝鲜VS土库曼斯坦', 'B区教学楼', '武汉大学', '0');
-INSERT INTO `t_project` VALUES ('5', '2018-02-28 00:00:00', null, '123', '123', 'A区教学楼', '武汉大学', '0');
-INSERT INTO `t_project` VALUES ('7', '2018-03-02 00:00:00', null, 'xx', '测试', 'A区教学楼', '武汉大学', '0');
-INSERT INTO `t_project` VALUES ('8', '2018-03-01 00:00:00', null, '校园测试A-B', '练习赛', 'A区教学楼', '武汉大学', '0');
-INSERT INTO `t_project` VALUES ('9', '2018-03-01 00:00:00', null, '校园比赛A-C', '练习赛', 'B区', '体育部', '0');
-INSERT INTO `t_project` VALUES ('10', '2018-03-24 00:00:00', null, '练习赛A-B', 'XXXX', 'a栋', '安安', '0');
-INSERT INTO `t_project` VALUES ('11', '2018-03-03 00:00:00', null, '练习赛A-C', '小组联系', 'a栋', '学校', '0');
-INSERT INTO `t_project` VALUES ('12', '2018-03-24 00:00:00', null, '练习赛A', '练习', 'a栋', '校方', '0');
-INSERT INTO `t_project` VALUES ('13', '2018-03-03 00:00:00', null, '练习赛B', '分组练习', 'a区', '校方', '0');
-INSERT INTO `t_project` VALUES ('14', '2018-03-15 00:00:00', null, '比赛项目1', '这是一个比赛', 'xxx', '123', '0');
-INSERT INTO `t_project` VALUES ('15', '2018-03-03 00:00:00', null, 'bis', '213', 'xx', '3', '0');
-INSERT INTO `t_project` VALUES ('16', '2018-04-13 00:00:00', null, '测试赛', '1                      \r\n             ', '12', '3', '0');
-INSERT INTO `t_project` VALUES ('17', '2018-04-02 00:00:00', null, '2', '                      \r\n             2', '2', 'x', '0');
-INSERT INTO `t_project` VALUES ('18', '2018-04-12 00:00:00', null, '33', '                      \r\n             33', '33', '33', '0');
+INSERT INTO `t_project` VALUES ('4', '2018-03-17 23:04:24', null, '亚锦赛男子双打', '朝鲜VS土库曼斯坦', 'B区教学楼', '武汉大学', '1');
+INSERT INTO `t_project` VALUES ('5', '2018-02-28 00:00:00', null, '123', '123', 'A区教学楼', '武汉大学', '1');
+INSERT INTO `t_project` VALUES ('7', '2018-03-02 00:00:00', null, 'xx', '测试', 'A区教学楼', '武汉大学', '1');
+INSERT INTO `t_project` VALUES ('8', '2018-03-01 00:00:00', null, '校园测试A-B', '练习赛', 'A区教学楼', '武汉大学', '1');
+INSERT INTO `t_project` VALUES ('9', '2018-03-01 00:00:00', null, '校园比赛A-C', '练习赛', 'B区', '体育部', '1');
+INSERT INTO `t_project` VALUES ('10', '2018-03-24 00:00:00', null, '练习赛A-B', 'XXXX', 'a栋', '安安', '1');
+INSERT INTO `t_project` VALUES ('11', '2018-03-03 00:00:00', null, '练习赛A-C', '小组联系', 'a栋', '学校', '1');
+INSERT INTO `t_project` VALUES ('12', '2018-03-24 00:00:00', null, '练习赛A', '练习', 'a栋', '校方', '1');
+INSERT INTO `t_project` VALUES ('13', '2018-03-03 00:00:00', null, '练习赛B', '分组练习', 'a区', '校方', '1');
+INSERT INTO `t_project` VALUES ('14', '2018-03-15 00:00:00', null, '比赛项目1', '这是一个比赛', 'xxx', '123', '1');
+INSERT INTO `t_project` VALUES ('15', '2018-03-03 00:00:00', null, 'bis', '213', 'xx', '3', '1');
+INSERT INTO `t_project` VALUES ('16', '2018-04-13 00:00:00', null, '测试赛', '1                      \r\n             ', '12', '3', '1');
+INSERT INTO `t_project` VALUES ('17', '2018-04-02 00:00:00', null, '2', '                      \r\n             2', '2', 'x', '1');
+INSERT INTO `t_project` VALUES ('18', '2018-04-12 00:00:00', null, '33', '                      \r\n             33', '33', '33', '1');
 INSERT INTO `t_project` VALUES ('19', '2018-04-27 00:00:00', null, '武汉理工', '1                      \r\n             ', '33', '3', '1');
 INSERT INTO `t_project` VALUES ('20', '2018-04-03 00:00:00', null, 'zxc', '                      \r\n             xzc', 'zxc', 'zxc', '1');
 INSERT INTO `t_project` VALUES ('21', '2018-04-03 13:58:03', null, 'x1', '                      \r\n             xx', 'xx', 'xx', '1');
-INSERT INTO `t_project` VALUES ('22', '2018-04-14 21:44:26', null, '单人赛', '123                      \r\n             ', '33', '44', '0');
+INSERT INTO `t_project` VALUES ('22', '2018-04-14 21:44:26', null, '单人赛', '123                      \r\n             ', '33', '44', '1');
+INSERT INTO `t_project` VALUES ('23', '2018-05-31 00:00:00', null, '1', '1', '1', '1', '1');
+INSERT INTO `t_project` VALUES ('24', '2018-03-03 00:00:00', null, '比赛A', '很大', '22', '官方', '0');
+INSERT INTO `t_project` VALUES ('25', '2018-07-11 00:00:00', null, 'B', '比赛', '22', '33', '0');
 
 -- ----------------------------
 -- Table structure for `t_project2`
@@ -298,20 +324,20 @@ CREATE TABLE `t_users` (
   `isDeleted` tinyint(4) DEFAULT NULL,
   `isMale` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_users
 -- ----------------------------
-INSERT INTO `t_users` VALUES ('1', '刘1', '1550000', '123456', null, '25', '50', '一个运动员', '2018-03-16 22:21:04', '170', '测试2', '0', '0');
-INSERT INTO `t_users` VALUES ('2', '刘2', '18888', '123123', null, '22', '80', '一个运动员', '2018-03-09 22:31:19', '186', '测试2', '0', '1');
+INSERT INTO `t_users` VALUES ('1', '刘1', '1550000', '123456', null, '25', '50', '一个运动员', '2018-03-16 22:21:04', '170', '测试2', '1', '0');
+INSERT INTO `t_users` VALUES ('2', '刘2', '18888', '123123', null, '22', '80', '一个运动员', '2018-03-09 22:31:19', '186', '测试2', '1', '1');
 INSERT INTO `t_users` VALUES ('3', 'xx', '1555555', '123456', null, '14', '65', '下信息、', '2018-03-29 14:04:46', '0', '同仁堂、', '1', '1');
 INSERT INTO `t_users` VALUES ('4', '大可', '15555', '123456', null, '113', '155', '呃呃呃', '2018-04-07 14:04:49', '0', '特斯', '1', '1');
 INSERT INTO `t_users` VALUES ('5', '李丹', '1555555', '123456', null, '35', '56', '我是一名运动员', '2018-04-01 14:04:52', '0', '同仁堂、', '1', '0');
-INSERT INTO `t_users` VALUES ('6', 'xxx', '155552', '123456', null, '12', '33', '1', '2018-03-17 12:54:31', '0', '133', '0', '0');
-INSERT INTO `t_users` VALUES ('7', '运动员2', '1555', '123456', null, '12', '13', 'xx', '2018-03-17 12:57:00', '0', 'team', '0', '1');
+INSERT INTO `t_users` VALUES ('6', 'xxx', '155552', '123456', null, '12', '33', '1', '2018-03-17 12:54:31', '0', '133', '1', '0');
+INSERT INTO `t_users` VALUES ('7', '运动员2', '1555', '123456', null, '12', '13', 'xx', '2018-03-17 12:57:00', '0', 'team', '1', '1');
 INSERT INTO `t_users` VALUES ('8', '大神', '1555555', '123456', null, '22', '155', '11111', '2018-03-17 21:21:47', '0', '天天', '1', '1');
-INSERT INTO `t_users` VALUES ('9', '小旋风', '1555555', '123456', null, '22', '59', '热爱体育', '2018-03-18 19:37:50', '0', '太阳队', '0', '0');
+INSERT INTO `t_users` VALUES ('9', '小旋风', '1555555', '123456', null, '22', '59', '热爱体育', '2018-03-18 19:37:50', '0', '太阳队', '1', '0');
 INSERT INTO `t_users` VALUES ('10', '1', '22', '123456', null, '1', '3', '1', '2018-03-22 19:15:21', '0', '2', '1', '1');
 INSERT INTO `t_users` VALUES ('11', '徐', '1555', '123456', null, '22', '12', '11', '2018-03-22 22:20:58', '0', 'team', '0', '1');
 INSERT INTO `t_users` VALUES ('12', 'xx', 'admin', '123456', null, '3', '23', '2', '2018-03-23 13:07:14', '0', 'aa', '0', '1');
@@ -325,6 +351,8 @@ INSERT INTO `t_users` VALUES ('19', '峰', '1500811', '123456', null, '21', '63'
 INSERT INTO `t_users` VALUES ('20', 'test', '123456789', '123456', null, '18', '33', 'xxxxx', '2018-03-31 09:45:03', '0', '2', '1', '1');
 INSERT INTO `t_users` VALUES ('21', 'test2', '1500822', '123456', null, '19', '55', 'xxxxx', '2018-03-31 09:49:16', '0', '2', '1', '1');
 INSERT INTO `t_users` VALUES ('22', '测试人员te', '123321', '123321', null, '12', '33', '1', '2018-04-07 21:43:58', '0', 't123', '0', '0');
+INSERT INTO `t_users` VALUES ('23', '1', '111', '123', null, '2222', '1', '1', '2018-07-03 09:34:12', '0', '123', '0', '1');
+INSERT INTO `t_users` VALUES ('24', '213', '123', '444', null, '123', '66', '77', '2018-07-03 09:34:25', '0', '55', '0', '1');
 
 -- ----------------------------
 -- Table structure for `t_usertoevaluate`
@@ -358,14 +386,14 @@ INSERT INTO `t_usertoevaluate` VALUES ('8', '1', '                      输入�
 INSERT INTO `t_usertoevaluate` VALUES ('9', '1', '123', null, '0', '5');
 INSERT INTO `t_usertoevaluate` VALUES ('10', '1', '                      输入你的评价在这里\r\n             ', null, '0', '1');
 INSERT INTO `t_usertoevaluate` VALUES ('11', '1', '                      \r\n             该运动员比赛认真积极向上', null, '0', '1');
-INSERT INTO `t_usertoevaluate` VALUES ('12', '1', '                      \r\n            呃呃呃呃呃呃呃', null, '0', '1');
+INSERT INTO `t_usertoevaluate` VALUES ('12', '1', '                      \r\n            呃呃呃呃呃呃呃', null, '1', '1');
 INSERT INTO `t_usertoevaluate` VALUES ('13', '13', '                      \r\n             呃呃呃呃呃呃', null, '1', '1');
 INSERT INTO `t_usertoevaluate` VALUES ('14', '13', '                      \r\n        这是一个测试1     ', null, '0', '5');
 INSERT INTO `t_usertoevaluate` VALUES ('15', '14', '                      \r\n             测试1', null, '1', '1');
 INSERT INTO `t_usertoevaluate` VALUES ('16', '13', '                      \r\n             测试2', null, '1', '1');
 INSERT INTO `t_usertoevaluate` VALUES ('17', '15', '                      \r\n             加油！', null, '0', '1');
 INSERT INTO `t_usertoevaluate` VALUES ('18', '15', '                      \r\n             学习想', null, '1', '7');
-INSERT INTO `t_usertoevaluate` VALUES ('19', '19', '                      \r\n           厉害了  ', null, '0', '1');
+INSERT INTO `t_usertoevaluate` VALUES ('19', '19', '                      \r\n           厉害了  ', null, '1', '1');
 INSERT INTO `t_usertoevaluate` VALUES ('20', '19', '                      \r\n            裁判组的测试评价 ', null, '1', '5');
 INSERT INTO `t_usertoevaluate` VALUES ('23', '1', '                      jiayou\r\n             ', null, '1', '1');
 INSERT INTO `t_usertoevaluate` VALUES ('24', '1', '                      \r\n   该运动员十分不错          ', null, '1', '1');
@@ -380,7 +408,7 @@ CREATE TABLE `t_usertoproject` (
   `userid` int(22) DEFAULT NULL,
   `isDeleted` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_usertoproject
@@ -402,8 +430,8 @@ INSERT INTO `t_usertoproject` VALUES ('54', '11', '1', '1');
 INSERT INTO `t_usertoproject` VALUES ('55', '12', '15', '0');
 INSERT INTO `t_usertoproject` VALUES ('56', '12', '13', '0');
 INSERT INTO `t_usertoproject` VALUES ('57', '12', '12', '1');
-INSERT INTO `t_usertoproject` VALUES ('58', '13', '19', '0');
-INSERT INTO `t_usertoproject` VALUES ('59', '13', '17', '0');
+INSERT INTO `t_usertoproject` VALUES ('58', '13', '19', '1');
+INSERT INTO `t_usertoproject` VALUES ('59', '13', '17', '1');
 INSERT INTO `t_usertoproject` VALUES ('60', '13', '16', '1');
 INSERT INTO `t_usertoproject` VALUES ('61', '14', '20', '0');
 INSERT INTO `t_usertoproject` VALUES ('62', '14', '19', '0');
@@ -415,6 +443,7 @@ INSERT INTO `t_usertoproject` VALUES ('67', '4', '12', '0');
 INSERT INTO `t_usertoproject` VALUES ('68', '22', '22', '0');
 INSERT INTO `t_usertoproject` VALUES ('69', '22', '19', '0');
 INSERT INTO `t_usertoproject` VALUES ('70', '22', '15', '1');
+INSERT INTO `t_usertoproject` VALUES ('71', '24', '11', '0');
 
 -- ----------------------------
 -- Table structure for `t_usertoscore`
