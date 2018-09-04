@@ -92,13 +92,7 @@ Maven install 顺序 :
 <h3>4.其他模块</h3>
  <img src="/other/message.jpg" alt="主页" style="max-width:100%;"><br/>
  <img src="/other/password.jpg" alt="主页" style="max-width:100%;"><br/>
-
-
 <br/>
-
-
-
-
 
 <h1>最后</h1>
 项目以做学习交流为目的。希望多多指教。如果觉得不错，请为它STAR！
