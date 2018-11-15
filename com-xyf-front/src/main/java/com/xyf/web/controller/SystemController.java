@@ -50,21 +50,6 @@ Request.ServerVariables["Script_Name"]              执行脚本的名称
                    system.setServletURL(request.getServletContext().getRealPath("/"));
                    system.setCharacter(request.getCharacterEncoding());
 
-		    
-
-
-		    
-
-		    
-
-
-		    
-
-
-		    
-
-
-		    
 		   
 	        ModelAndView modelAndView = new ModelAndView("system/list");
 	        request.setAttribute("system", system);

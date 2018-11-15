@@ -61,7 +61,6 @@ public class MessageController {
 		ms.setIsAdmin(true);
 		ms.setCreateTime(new Date());
 		ms.setName("用户");
-		System.out.println(ms.toString());
 		messagesService.insert(ms);
 		resp.sendRedirect("./show.do");
 		return null;

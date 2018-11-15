@@ -61,7 +61,6 @@ private UserScoreService userScoreService;
 	   */
 	  ModelAndView modelAndView=new ModelAndView("/projectUser/add");
 	  List<User> userList = userService.selectList();
-      System.out.println(userList.toString());
 	  modelAndView.addObject("userList",userList);
       request.setAttribute("projectId", projectId);	   
 
@@ -88,9 +87,6 @@ private UserScoreService userScoreService;
 	 projectUser.setProjectid(projectId);
 	 projectUser.setUserid(id);
 	 projectUserSerivce.delete(projectUser);
-	  
-	  
-	  
  	 return AjaxResult.successInstance("删除成功"); 
 	  
   }

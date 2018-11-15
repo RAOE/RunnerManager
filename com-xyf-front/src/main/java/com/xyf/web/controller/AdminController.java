@@ -60,7 +60,7 @@ public class AdminController {
 	public ModelAndView login(String name,String password,HttpServletRequest request)
 	{
       String isUser=request.getParameter("user");
-      //运动员登陆 
+      //登陆 
       if(isUser!=null)
 	   {
 		 User user =userService.checkPassword(name, password);
@@ -147,8 +147,6 @@ public class AdminController {
 	 * @param req
 	 * @return
 	 */
-
-	
 	@RequestMapping(value="updatePassword.do",method=RequestMethod.GET)
 	public ModelAndView updatePassword(HttpServletResponse resp,HttpServletRequest req)
 	{
@@ -186,8 +184,6 @@ public class AdminController {
 	public  ModelAndView add()
 	{
 		return new ModelAndView("/adminUser/add");
-		
-		
 	}
 	/**
 	 * 新建裁判账号

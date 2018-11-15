@@ -19,20 +19,21 @@ import org.springframework.web.multipart.MultipartFile;
 import com.xyf.pojo.User;
 import com.xyf.utils.JsonUtils;
 /**
- * ÓÃÓÚ¼ÇÂ¼ÈÕÖ¾
+ *Ú¼ï¿½Â¼ï¿½ï¿½Ö¾
  * @author Ray
  *
  */
 @Aspect
 public class LogAspect {
 
-    private static final Logger logger = LogManager.getLogger("ÓÃ»§²Ù×÷ÈÕÖ¾");
+    private static final Logger logger = LogManager.getLogger("æ—¥å¿—");
 
     @Pointcut("@annotation(org.springframework.web.bind.annotation.RequestMapping)")
     public void controller() {
 
     }
-//·½·¨Ö´ĞĞÖ®Ç°¼ì²éÓÃ»§   ²¢Êä³öÈÕÖ¾
+    
+    //ç¯ç»•é€šçŸ¥ é¢å‘åˆ‡é¢ç¼–ç¨‹Ö¾
     @Before("controller()")
     public void before(JoinPoint joinPoint) throws Throwable {
 
@@ -50,16 +51,16 @@ public class LogAspect {
         Object[] args = joinPoint.getArgs();
         for (int i = 0; i < args.length; i++) {
             if (args[i] instanceof ServletRequest) {
-                args[i] = "request¶ÔÏó";
+                args[i] = "request";
             } else if (args[i] instanceof ServletResponse) {
-                args[i] = "response¶ÔÏó";
+                args[i] = "response";
             } else if (args[i] instanceof MultipartFile) {
-                args[i] = "MultipartFile¶ÔÏó";
+                args[i] = "MultipartFile";
             } else if (args[i] instanceof BindingResult) {
-                args[i] = "BindingResult¶ÔÏó";
+                args[i] = "BindingResult";
             }
         }
 
-        logger.info("ÓÃ»§id£º{}£¬·½·¨Ç©Ãû£º{}£¬·½·¨²ÎÊı£º{}", userId, joinPoint.getSignature(), JsonUtils.toJson(args));
+        logger.info("", userId, joinPoint.getSignature(), JsonUtils.toJson(args));
     }
 }

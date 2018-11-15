@@ -1,9 +1,13 @@
 eclipse.preferences.version=1
 encoding//src/main/java/com/xyf/resolver/XyfHandlerExceptionResolver.java=UTF-8
+encoding//src/main/java/com/xyf/web/aop/LogAspect.java=UTF-8
 encoding//src/main/java/com/xyf/web/controller/AdminController.java=UTF-8
+encoding//src/main/java/com/xyf/web/controller/AuthorController.java=UTF-8
 encoding//src/main/java/com/xyf/web/controller/EvaluateController.java=UTF-8
 encoding//src/main/java/com/xyf/web/controller/MessageController.java=UTF-8
 encoding//src/main/java/com/xyf/web/controller/OtherController.java=UTF-8
 encoding//src/main/java/com/xyf/web/controller/ProjectController.java=UTF-8
 encoding//src/main/java/com/xyf/web/controller/ProjectUserController.java=UTF-8
 encoding//src/main/java/com/xyf/web/controller/UserController.java=UTF-8
+encoding//src/main/webapp/utf8-jsp/jsp/config.json=UTF-8
+encoding/<project>=UTF-8
