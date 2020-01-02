@@ -95,7 +95,7 @@ Maven install 顺序 :
 <br/>
 
 <h1>最后-关于我的淘宝店？</h1>
-<img src="/other/bishe.JPG" alt="主页" style="max-width:100%;"><br/>
+<pre>联系方式：qq 986771570</pre><br/>
 
 项目以做学习交流为目的，禁止用于商业用途。希望多多指教。如果觉得不错，请为它STAR！
 借鉴或参考请先联系作者    <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=986771570&site=qq&menu=yes">联系我</a>
