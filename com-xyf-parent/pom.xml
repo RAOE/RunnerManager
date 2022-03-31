@@ -41,7 +41,7 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-webmvc</artifactId>
-                <version>4.3.2.RELEASE</version>
+                <version>5.3.18</version>
             </dependency>
             
             <!-- spring-aspects 增加了spring对面向切面编程的支持，传递依赖了aspectjweaver -->
